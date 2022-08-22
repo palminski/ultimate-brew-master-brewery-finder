@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Goldman" >
+    <link rel="stylesheet" href="./assets/css/style.css">
 
     <title>Ultimate Brew Master!</title>
 </head>
@@ -14,13 +14,15 @@
     <header>
         <h1>Ultimate Brew Master</h1>
     </header>
-    <div class="seachbar">
-        <form>
+    <div class="ui search">
+        <div class="ui icon input">
             <input type="text" id="location-input" placeholder="Enter Location">
             <input type="text" id="brewery-input" placeholder="Enter Brewery">
-            <button>Search</button>
-        </form>
-    </div>
+          <i class="search icon"></i>
+        </div>
+        <div class="results"></div>
+      </div>
+    
     <div class="brewery-card-holder">
         <!-- Generated Cards From JavaScript will go here -->
     </div>

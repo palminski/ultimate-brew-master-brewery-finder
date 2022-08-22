@@ -1,1 +1,30 @@
 /* This can be used for custom styling should the need arise */
+header {
+    background-image: url("../images/beer_background.jpg");
+    height: 25%;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 5px white solid;
+    box-shadow: black 6px 6px;;
+}
+
+h1 {
+    color: #fcaa15;
+    padding: 50px;
+    text-decoration: underline;
+    text-decoration-color: white;
+    font-size: 48px;
+    font-family: 'goldman';
+    text-shadow: black 3px 3px;
+}
+
+body {
+    background-image: url("https://i.pinimg.com/736x/7e/d6/8a/7ed68a697fb3ce4b8f2accc3b1c595bc.jpg");
+    background-size: cover;
+    background-position: center;
+    font-family: 'Baloo 2';
+}
+
+.seachbar {
+    border: solid white 4px;
+}
