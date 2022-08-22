@@ -25,6 +25,15 @@ body {
     font-family: 'Baloo 2';
 }
 
-.seachbar {
-    border: solid white 4px;
+.search-bar {
+    border-bottom: solid white 5px;
+}
+
+footer {
+    background-image: url("../images/beer_background.jpg");
+    height: 25%;
+    background-size: cover;
+    background-position: center;
+    border-top: 5px white solid;
+    box-shadow: black 6px 6px;;
 }
