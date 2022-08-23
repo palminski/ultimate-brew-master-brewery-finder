@@ -1,7 +1,12 @@
 /* This can be used for custom styling should the need arise */
+* {
+    padding: 0;
+    margin: 0;
+}
+
 header {
     background-image: url("../images/beer_background.jpg");
-    height: 25%;
+    height: 150px;
     background-size: cover;
     background-position: center;
     border-bottom: 5px white solid;
@@ -33,22 +38,31 @@ body {
     border-bottom: solid white 5px;
 }
 
-footer {
-    background-image: url("../images/beer_background.jpg");
-    height: 25%;
+.brewery-card-holder {
+    height: 900px;
+}
+
+.hops {
+    background-image: url("https://static.vecteezy.com/system/resources/previews/000/184/331/original/hop-plant-vector-background.jpg");;
+    height: 150px;
     background-size: cover;
     background-position: center;
     border-top: 5px white solid;
     box-shadow: black 6px 6px;;
 }
 
+
 .site-info {
     padding: 20px;
+    margin-top: 60px;
 }
 
 footer li {
     list-style-type: none;
     color: #fcaa15;
-    padding: 10px;
     font-size: 20px;
+    text-decoration: underline;
+    text-decoration-color: white;
+    font-family: 'goldman';
+    text-shadow: black 2px 2px;
 }
