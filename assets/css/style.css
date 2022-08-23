@@ -6,7 +6,7 @@
 
 header {
     background-image: url("../images/beer_background.jpg");
-    height: 150px;
+    height: 600px;
     background-size: cover;
     background-position: center;
     border-bottom: 5px white solid;
@@ -21,6 +21,13 @@ h1 {
     font-size: 48px;
     font-family: 'goldman';
     text-shadow: black 3px 3px;
+}
+
+.about-us {
+    width: 600px;
+    padding: 0 0 0 60px;
+    color: white;
+    font-size: 20px;
 }
 
 body {
