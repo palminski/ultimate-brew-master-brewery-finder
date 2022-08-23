@@ -135,3 +135,50 @@ footer li {
     height: 900px;
 }
 
+#location-input {
+    border-radius: 60px;
+    border: 2px solid black;
+    font-family: goldman;
+    font-weight: bold;
+    font-size: x-large;
+    text-align: center;
+}
+
+#location-input:focus {
+    background-color: #fcaa15;
+}
+
+#brewery-input {
+    border-radius: 60px;
+    border: 2px solid black;
+    font-family: goldman;
+    font-weight: bold;
+    font-size: x-large;
+    text-align: center;
+
+}
+
+#brewery-input:focus {
+    background-color: #fcaa15;
+}
+
+#search-btn {
+    font-family: goldman;
+    font-size: x-large;
+    background-color: black;
+    border: 6px solid #fcaa15;
+    color: #fcaa15;
+    border-radius: 60px;
+}
+
+#search-btn:hover {
+    background-color: white;
+    border: 6px solid black;
+    color: black;
+
+
+
+}
+
+
+
