@@ -25,7 +25,7 @@ h1 {
     text-decoration: underline;
     text-decoration-color: var(--main-td-color);
     font-size: 48px;
-    font-family: 'goldman';
+    font-family: goldman;
     text-shadow: var(--main-ts-color) 3px 3px;
 }
 
@@ -39,7 +39,7 @@ h1 {
 
 .about {
     color: var(--main-font-color);
-    font-family: 'goldman';
+    font-family: goldman;
     text-shadow: var(--main-ts-color) 3px 3px;
     flex-wrap: wrap;
 }
@@ -122,7 +122,7 @@ footer li {
     font-size: 20px;
     text-decoration: underline;
     text-decoration-color: var(--main-td-color);
-    font-family: 'goldman';
+    font-family: goldman;
     text-shadow: var(--main-ts-color) 2px 2px;
 }
 
@@ -144,7 +144,7 @@ footer li {
     font-size: 40px;
     text-decoration: underline;
     text-decoration-color: var(--main-td-color);
-    font-family: 'goldman';
+    font-family: goldman;
     text-shadow: var(--main-ts-color) 2px 2px;
     flex-wrap: wrap;
 }
@@ -153,8 +153,47 @@ footer li {
     height: 900px;
 }
 
-@media  screen and (max-width: 575px) {
-    header {
-        width: 100%;
-    }
+#location-input {
+    border-radius: 60px;
+    border: 6px solid var(--main-ts-color);
+    font-family: goldman;
+    font-weight: bold;
+    font-size: x-large;
+    text-align: center;
 }
+
+#location-input:focus {
+    background-color: var(--main-font-color);
+}
+
+#brewery-input {
+    border-radius: 60px;
+    border: 6px solid var(--main-ts-color);
+    font-family: goldman;
+    font-weight: bold;
+    font-size: x-large;
+    text-align: center;
+
+}
+
+#brewery-input:focus {
+    background-color: var(--main-font-color);
+}
+
+#search-btn {
+    font-family: goldman;
+    font-size: x-large;
+    background-color: var(--main-ts-color);
+    border: 6px solid var(--main-font-color);
+    color: var(--main-font-color);
+    border-radius: 60px;
+}
+
+#search-btn:hover {
+    background-color: var(--main-td-color);
+    border: 6px solid var(--main-ts-color);
+    color: var(--main-ts-color);
+}
+
+
+
