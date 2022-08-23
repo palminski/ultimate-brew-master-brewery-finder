@@ -38,12 +38,22 @@ body {
     border-bottom: solid white 5px;
 }
 
-.brewery-card-holder {
-    height: 900px;
+
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.ui.card.brew-card {
+    border: #fcaa15 solid 4px;
+    flex-wrap: wrap;
+    
 }
 
 .hops {
-    background-image: url("https://static.vecteezy.com/system/resources/previews/000/184/331/original/hop-plant-vector-background.jpg");;
+    background-image: url("../images/hop-plant-vector-background.jpeg");;
     height: 150px;
     background-size: cover;
     background-position: center;
