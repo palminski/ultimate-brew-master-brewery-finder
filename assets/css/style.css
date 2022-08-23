@@ -25,6 +25,10 @@ body {
     font-family: 'Baloo 2';
 }
 
+.search-container {
+    margin: 10px 30px;
+}
+
 .search-bar {
     border-bottom: solid white 5px;
 }
@@ -36,4 +40,15 @@ footer {
     background-position: center;
     border-top: 5px white solid;
     box-shadow: black 6px 6px;;
+}
+
+.site-info {
+    padding: 20px;
+}
+
+footer li {
+    list-style-type: none;
+    color: #fcaa15;
+    padding: 10px;
+    font-size: 20px;
 }
