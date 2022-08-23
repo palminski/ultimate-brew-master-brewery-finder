@@ -17,23 +17,32 @@
     <header>
         <h1>Ultimate Brew Master</h1>
         <div class="about-us">
-            <h3>About us:</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis dolorum sint delectus aliquid ea blanditiis dolores ducimus, expedita libero, aperiam repellendus. Commodi exercitationem animi, perspiciatis quam hic veniam ad est.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis dolorum sint delectus aliquid ea
+                blanditiis dolores ducimus, expedita libero, aperiam repellendus. Commodi exercitationem animi,
+                perspiciatis quam hic veniam ad est.</p>
         </div>
     </header>
     <div class="search-container">
         <div class="ui search ui two column centered grid">
-            <div class="ui icon input search-bar row">
-                <input type="text" id="location-input" placeholder="Enter Location" class="column">
-                <input type="text" id="brewery-input" placeholder="Enter Brewery" class="column">
-                <i class="search icon"></i>
-            </div>
+            <form class="ui icon input search-bar row input-form">
+                <div class="ui icon input input-field1">
+                    <input type="text" id="location-input" placeholder="Optional: Enter Location" class="column">
+                    <i class="search icon"></i>
+                </div>
+                <div class="ui icon input input-field2">
+                    <input type="text" id="brewery-input" placeholder="Optional: Enter Brewery" class="column">
+                    <i class="search icon"></i>
+                </div>
+                <button class="ui primary button">
+                    Search
+                </button>
+            </form>
             <div class="results"></div>
         </div>
     </div>
-    
-        <!-- Generated Cards From JavaScript will go here -->
-        <div class="card-container">
+
+    <!-- Generated Cards From JavaScript will go here -->
+    <div class="card-container">
         <div class="ui card brew-card">
             <div class="image">
                 <img src="./assets/images/stock_photos/brewery17.jpeg">

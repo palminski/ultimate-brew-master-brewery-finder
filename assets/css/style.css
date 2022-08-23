@@ -45,7 +45,18 @@ body {
     border-bottom: solid white 5px;
 }
 
+.input-field1, .input-field2 {
+    width: 40%;
 
+}
+
+.input-field1 {
+    margin: 0 5px 0 0;
+}
+
+.input-field2 {
+    margin: 0 0 0 5px;
+}
 
 .card-container {
     display: flex;
@@ -83,3 +94,28 @@ footer li {
     font-family: 'goldman';
     text-shadow: black 2px 2px;
 }
+
+.results-title {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.return {
+    width: 330px;
+}
+
+.return-link {
+    color: #fcaa15;
+    font-size: 40px;
+    text-decoration: underline;
+    text-decoration-color: white;
+    font-family: 'goldman';
+    text-shadow: black 2px 2px;
+    flex-wrap: wrap;
+}
+
+.clicked-result {
+    height: 900px;
+}
+
