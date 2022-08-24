@@ -15,33 +15,56 @@
 
 <body>
     <header>
+        <div class="ui two column doubling stackable grid container"></div>
+        <div class="column">
         <h1>Ultimate Brew Master</h1>
-        <div class="about-us">
-            <h3>About us:</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis dolorum sint delectus aliquid ea blanditiis dolores ducimus, expedita libero, aperiam repellendus. Commodi exercitationem animi, perspiciatis quam hic veniam ad est.</p>
+    </div>
+        <div class="column" id="about-us">
+            <p class="about">Are the stresses of the world getting to you? Are you trying to find a place between where
+                you and your friends live to grab a drink? How about needing assistance setting up a weekend brewery
+                crawl? Whatever your
+                reason is we are here to help. Ultimate Brew Master was created by a group of friends to help people
+                everywhere find breweries in there area. Whatever your need is we are here to help find the perfect fit.
+            </p>
+        </div>
         </div>
     </header>
-    <div class="search-container">
+    <div id="search-container">
         <div class="ui search ui two column centered grid">
-            <div class="ui icon input search-bar row">
-                <input type="text" id="location-input" placeholder="Enter Location" class="column">
-                <input type="text" id="brewery-input" placeholder="Enter Brewery" class="column">
-                <i class="search icon"></i>
-            </div>
+            <form class="ui icon input search-bar row input-form">
+                <div class="ui icon input input-field1">
+                    <input type="text" id="location-input" placeholder="Optional: Enter Location" class="column">
+                    <i class="search icon"></i>
+                </div>
+                <div class="ui icon input input-field2">
+                    <input type="text" id="brewery-input" placeholder="Optional: Enter Brewery" class="column">
+                    <i class="search icon"></i>
+                </div>
+                <button class="ui primary button" id="search-btn">
+                    Search
+                </button>
+            </form>
             <div class="results"></div>
         </div>
     </div>
-    
-        <!-- Generated Cards From JavaScript will go here -->
-        <div class="card-container">
+    <div class="map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11181.722537189036!2d-122.69704999748025!3d45.52153905739079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950a1d983920d9%3A0xffc461bc589cc5ce!2sProvidence%20Park!5e0!3m2!1sen!2sus!4v1661284328766!5m2!1sen!2sus"
+            width="930" height="480" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+    <!-- Generated Cards From JavaScript will go here -->
+    <div class="ui cards" id="card-container">
         <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery17.jpeg">
+            <div class="ui medium bordered image">
+                <img class="ui small image" src="./assets/images/stock_photos/brewery17.jpeg">
             </div>
             <div class="content">
                 <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
                 <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
+                <div class="number">Phone Number:</div>
                 <div class="description">
                     About:
                 </div>
@@ -49,13 +72,14 @@
             </div>
         </div>
         <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery1.jpeg">
+            <div class="ui medium bordered image">
+                <img src="./assets/images/stock_photos/brewery1.jpeg" class="brewery-img">
             </div>
             <div class="content">
                 <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
                 <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
+                <div class="number">Phone Number:</div>
                 <div class="description">
                     About:
                 </div>
@@ -63,13 +87,14 @@
             </div>
         </div>
         <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery10.jpeg">
+            <div class="ui medium bordered image">
+                <img src="./assets/images/stock_photos/brewery10.jpeg" class="brewery-img">
             </div>
             <div class="content">
                 <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
                 <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
+                <div class="number">Phone Number:</div>
                 <div class="description">
                     About:
                 </div>
@@ -77,13 +102,14 @@
             </div>
         </div>
         <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery2.jpeg">
+            <div class="ui medium bordered image">
+                <img src="./assets/images/stock_photos/brewery2.jpeg" class="brewery-img">
             </div>
             <div class="content">
                 <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
                 <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
+                <div class="number">Phone Number:</div>
                 <div class="description">
                     About:
                 </div>
@@ -91,13 +117,14 @@
             </div>
         </div>
         <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery11.jpeg">
+            <div class="ui medium bordered image">
+                <img src="./assets/images/stock_photos/brewery11.jpeg" class="brewery-img">
             </div>
             <div class="content">
                 <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
                 <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
+                <div class="number">Phone Number:</div>
                 <div class="description">
                     About:
                 </div>
@@ -105,13 +132,14 @@
             </div>
         </div>
         <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery3.jpeg">
+            <div class="ui medium bordered image">
+                <img src="./assets/images/stock_photos/brewery3.jpeg" class="brewery-img">
             </div>
             <div class="content">
                 <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
                 <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
+                <div class="number">Phone Number:</div>
                 <div class="description">
                     About:
                 </div>
@@ -119,13 +147,14 @@
             </div>
         </div>
         <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery12.jpeg">
+            <div class="ui medium bordered image">
+                <img src="./assets/images/stock_photos/brewery12.jpeg" class="brewery-img">
             </div>
             <div class="content">
                 <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
                 <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
+                <div class="number">Phone Number:</div>
                 <div class="description">
                     About:
                 </div>
@@ -133,13 +162,14 @@
             </div>
         </div>
         <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery4.jpeg">
+            <div class="ui medium bordered image">
+                <img src="./assets/images/stock_photos/brewery4.jpeg" class="brewery-img">
             </div>
             <div class="content">
                 <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
                 <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
+                <div class="number">Phone Number:</div>
                 <div class="description">
                     About:
                 </div>
@@ -147,13 +177,14 @@
             </div>
         </div>
         <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery13.jpeg">
+            <div class="ui medium bordered image">
+                <img src="./assets/images/stock_photos/brewery13.jpeg" class="brewery-img">
             </div>
             <div class="content">
                 <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
                 <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
+                <div class="number">Phone Number:</div>
                 <div class="description">
                     About:
                 </div>
@@ -161,13 +192,14 @@
             </div>
         </div>
         <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery5.jpeg">
+            <div class="ui medium bordered image">
+                <img src="./assets/images/stock_photos/brewery5.jpeg" class="brewery-img">
             </div>
             <div class="content">
                 <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
                 <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
+                <div class="number">Phone Number:</div>
                 <div class="description">
                     About:
                 </div>
@@ -175,13 +207,14 @@
             </div>
         </div>
         <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery14.jpeg">
+            <div class="ui medium bordered image">
+                <img src="./assets/images/stock_photos/brewery14.jpeg" class="brewery-img">
             </div>
             <div class="content">
                 <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
                 <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
+                <div class="number">Phone Number:</div>
                 <div class="description">
                     About:
                 </div>
@@ -189,13 +222,14 @@
             </div>
         </div>
         <div class="ui card brew-card">
-            <div class="image">
+            <div class="ui medium bordered image">
                 <img src="./assets/images/stock_photos/brewery6.jpeg">
             </div>
             <div class="content">
                 <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
                 <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
+                <div class="number">Phone Number:</div>
                 <div class="description">
                     About:
                 </div>
@@ -203,13 +237,14 @@
             </div>
         </div>
         <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery15.webp">
+            <div class="ui medium bordered image">
+                <img src="./assets/images/stock_photos/brewery15.webp" class="brewery-img">
             </div>
             <div class="content">
                 <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
                 <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
+                <div class="number">Phone Number:</div>
                 <div class="description">
                     About:
                 </div>
@@ -217,13 +252,14 @@
             </div>
         </div>
         <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery7.jpeg">
+            <div class="ui medium bordered image">
+                <img src="./assets/images/stock_photos/brewery7.jpeg" class="brewery-img">
             </div>
             <div class="content">
                 <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
                 <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
+                <div class="number">Phone Number:</div>
                 <div class="description">
                     About:
                 </div>
@@ -231,13 +267,14 @@
             </div>
         </div>
         <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery16.jpeg">
+            <div class="ui medium bordered image">
+                <img src="./assets/images/stock_photos/brewery16.jpeg" class="brewery-img">
             </div>
             <div class="content">
                 <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
                 <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
+                <div class="number">Phone Number:</div>
                 <div class="description">
                     About:
                 </div>
@@ -245,13 +282,14 @@
             </div>
         </div>
         <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery8.jpeg">
+            <div class="ui medium bordered image">
+                <img src="./assets/images/stock_photos/brewery8.jpeg" class="brewery-img">
             </div>
             <div class="content">
                 <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
                 <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
+                <div class="number">Phone Number:</div>
                 <div class="description">
                     About:
                 </div>
@@ -259,13 +297,14 @@
             </div>
         </div>
         <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery20.jpeg">
+            <div class="ui medium bordered image">
+                <img src="./assets/images/stock_photos/brewery20.jpeg" class="brewery-img">
             </div>
             <div class="content">
                 <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
                 <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
+                <div class="number">Phone Number:</div>
                 <div class="description">
                     About:
                 </div>
@@ -273,29 +312,14 @@
             </div>
         </div>
         <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery8.jpeg">
+            <div class="ui medium bordered image">
+                <img src="./assets/images/stock_photos/brewery8.jpeg" class="brewery-img">
             </div>
             <div class="content">
                 <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
                 <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
-                <div class="description">
-                    About:
-                </div>
-                <div class="review">
-                    Review:
-                </div>
-            </div>
-        </div>
-        <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery19.jpeg">
-            </div>
-            <div class="content">
-                <a class="header">Brewery</a>
-                <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
+                <div class="number">Phone Number:</div>
                 <div class="description">
                     About:
                 </div>
@@ -303,13 +327,29 @@
             </div>
         </div>
         <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery18.webp">
+            <div class="ui medium bordered image">
+                <img src="./assets/images/stock_photos/brewery19.jpeg" class="brewery-img">
             </div>
             <div class="content">
                 <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
                 <div class="address">Address:</div>
-                <div class="date">Opened in...</div>
+                <div class="number">Phone Number:</div>
+                <div class="description">
+                    About:
+                </div>
+                <div class="review">Review:</div>
+            </div>
+        </div>
+        <div class="ui card brew-card">
+            <div class="ui medium bordered image">
+                <img src="./assets/images/stock_photos/brewery18.webp" class="brewery-img">
+            </div>
+            <div class="content">
+                <a class="header">Brewery</a>
+                <div class="type">Brewery Type:</div>
+                <div class="address">Address:</div>
+                <div class="number">Phone Number:</div>
                 <div class="description">
                     About:
                 </div>
@@ -326,6 +366,7 @@
             </ul>
         </div>
     </footer>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
