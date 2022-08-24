@@ -4,30 +4,44 @@
     margin: 0;
 }
 
+:root {
+    --main-font-color: #fcaa15;
+    --main-td-color: white;
+    --main-ts-color: black;
+}
+
 header {
     background-image: url("../images/beer_background.jpg");
     height: 600px;
     background-size: cover;
     background-position: center;
-    border-bottom: 5px white solid;
-    box-shadow: black 6px 6px;;
+    border-bottom: 5px var(--main-td-color) solid;
+    box-shadow: var(--main-ts-color) 6px 6px;;
 }
 
 h1 {
-    color: #fcaa15;
+    color: var(--main-font-color);
     padding: 50px;
     text-decoration: underline;
-    text-decoration-color: white;
+    text-decoration-color: var(--main-td-color);
     font-size: 48px;
-    font-family: 'goldman';
-    text-shadow: black 3px 3px;
+    font-family: goldman;
+    text-shadow: var(--main-ts-color) 3px 3px;
 }
 
 .about-us {
     width: 600px;
     padding: 0 0 0 60px;
-    color: white;
+    color: var(--main-td-color);
     font-size: 20px;
+    display: flex;
+}
+
+.about {
+    color: var(--main-font-color);
+    font-family: goldman;
+    text-shadow: var(--main-ts-color) 3px 3px;
+    flex-wrap: wrap;
 }
 
 body {
@@ -42,10 +56,38 @@ body {
 }
 
 .search-bar {
-    border-bottom: solid white 5px;
+    border-bottom: solid var(--main-td-color) 5px;
 }
 
+.input-field1, .input-field2 {
+    width: 40%;
 
+}
+
+.input-field1 {
+    margin: 0 5px 0 0;
+}
+
+.input-field2 {
+    margin: 0 0 0 5px;
+}
+
+.map {
+    width: 950px;
+    height: 500px;
+    border: var(--main-font-color) solid 10px;
+    margin: 40px auto 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.map iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
 
 .card-container {
     display: flex;
@@ -54,7 +96,7 @@ body {
 }
 
 .ui.card.brew-card {
-    border: #fcaa15 solid 4px;
+    border: var(--main-font-color) solid 4px;
     flex-wrap: wrap;
     
 }
@@ -64,8 +106,8 @@ body {
     height: 150px;
     background-size: cover;
     background-position: center;
-    border-top: 5px white solid;
-    box-shadow: black 6px 6px;;
+    border-top: 5px var(--main-td-color) solid;
+    box-shadow: var(--main-ts-color) 6px 6px;;
 }
 
 
@@ -76,10 +118,82 @@ body {
 
 footer li {
     list-style-type: none;
-    color: #fcaa15;
+    color: var(--main-font-color);
     font-size: 20px;
     text-decoration: underline;
-    text-decoration-color: white;
-    font-family: 'goldman';
-    text-shadow: black 2px 2px;
+    text-decoration-color: var(--main-td-color);
+    font-family: goldman;
+    text-shadow: var(--main-ts-color) 2px 2px;
 }
+
+.results-title {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.return {
+    width: 550px;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 70px;
+}
+
+.return-link {
+    color: var(--main-font-color);
+    font-size: 40px;
+    text-decoration: underline;
+    text-decoration-color: var(--main-td-color);
+    font-family: goldman;
+    text-shadow: var(--main-ts-color) 2px 2px;
+    flex-wrap: wrap;
+}
+
+.clicked-result {
+    height: 900px;
+}
+
+#location-input {
+    border-radius: 60px;
+    border: 6px solid var(--main-ts-color);
+    font-family: goldman;
+    font-weight: bold;
+    font-size: x-large;
+    text-align: center;
+}
+
+#location-input:focus {
+    background-color: var(--main-font-color);
+}
+
+#brewery-input {
+    border-radius: 60px;
+    border: 6px solid var(--main-ts-color);
+    font-family: goldman;
+    font-weight: bold;
+    font-size: x-large;
+    text-align: center;
+
+}
+
+#brewery-input:focus {
+    background-color: var(--main-font-color);
+}
+
+#search-btn {
+    font-family: goldman;
+    font-size: x-large;
+    background-color: var(--main-ts-color);
+    border: 6px solid var(--main-font-color);
+    color: var(--main-font-color);
+    border-radius: 60px;
+}
+
+#search-btn:hover {
+    background-color: var(--main-td-color);
+    border: 6px solid var(--main-ts-color);
+    color: var(--main-ts-color);
+}
+
+
+
