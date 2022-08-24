@@ -19,4 +19,16 @@ https://github.com/palminski/ultimate-brew-master-brewery-finder.git
 
 <img src="">
 
-## Contact Info
+## Created by:
+
+Travis Greers 
+
+William Bolls
+
+Jake Schlei
+
+Dean Dunivan
+
+
+
+## Contact Info:
