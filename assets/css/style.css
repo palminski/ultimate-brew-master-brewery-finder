@@ -73,12 +73,12 @@ body {
 }
 
 .map {
-    width: 950px;
-    height: 500px;
+    position: relative;
+    overflow: hidden;
+    width: 80%;
+    padding-top: 56.25%;
     border: var(--main-font-color) solid 10px;
     margin: 40px auto 20px;
-    overflow: hidden;
-    position: relative;
 }
 
 .map iframe {
