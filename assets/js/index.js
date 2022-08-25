@@ -8,7 +8,7 @@ const searchBrewery = (locationInput,breweryInput) => {
     // const API_URL = "https://api.openbrewerydb.org/breweries?per_page=10&by_city=san_diego&by_name=cooper";
     let locationParameter = "";
     let breweryParameter = "";
-    const API_URL_BASE = "https://api.openbrewerydb.org/breweries?per_page=9";
+    const API_URL_BASE = "https://api.openbrewerydb.org/breweries?per_page=20";
     //Check to see if search terms were entered and then create a querry string based off the input
     if (locationInput) {
         locationParameter = "&by_city="+locationInput ;
@@ -59,5 +59,7 @@ const formSubmitHandler = (event) => {
 
     searchBrewery(locationInput,breweryInput);
 }
+
+searchBrewery("","");
 
 $("#search-form").on("submit", formSubmitHandler);
