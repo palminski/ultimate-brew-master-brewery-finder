@@ -119,17 +119,19 @@ const listBreweries = (breweries) => {
     for (let i = 0; i< breweries.length; i++) {
         console.log(breweries[i]);
 
-        fetch("http://api.giphy.com/v1/gifs/search?api_key=t8B9bOhzlzT6JWigjBj02k9eDnQx1nFI&q=simpsons-beer&rating=pg").then(function (response) {
+        //Grab Gif
+        let numberTOGrab = 25;
+        fetch("http://api.giphy.com/v1/gifs/search?api_key=t8B9bOhzlzT6JWigjBj02k9eDnQx1nFI&q=simpsons-beer&rating=pg&limit="+numberTOGrab).then(function (response) {
             return response.json();
         }).then(function (data) {
             console.log(data);
             let gif = data.data[i].images.original.url;
         
-
-        let $breweryCard = $("<a>") //<= create a card to hold brewery info
+        //Make and append Brewery Cards
+        let $breweryCard = $("<a>")
         .addClass("ui card brew-card")
         .attr("href",breweries[i].website_url).attr("target","_blank")
-        .append( //This is where information from the JSON data will be added to each card
+        .append(
             $("<div>").addClass("ui medium bordered image")
                 .append(
                     $("<img>").addClass("ui small image").attr("src",gif)
@@ -149,42 +151,7 @@ const listBreweries = (breweries) => {
     }
 }
 
-const listBreweries = (breweries) => {
 
-    $("#card-container").html("");
-
-    for (let i = 0; i< breweries.length; i++) {
-        console.log(breweries[i]);
-
-        fetch("http://api.giphy.com/v1/gifs/search?api_key=t8B9bOhzlzT6JWigjBj02k9eDnQx1nFI&q=simpsons-beer&rating=pg").then(function (response) {
-            return response.json();
-        }).then(function (data) {
-            console.log(data);
-            let gif = data.data[i].images.original.url;
-        
-
-        let $breweryCard = $("<a>") //<= create a card to hold brewery info
-        .addClass("ui card brew-card")
-        .attr("href",breweries[i].website_url).attr("target","_blank")
-        .append( //This is where information from the JSON data will be added to each card
-            $("<div>").addClass("ui medium bordered image")
-                .append(
-                    $("<img>").addClass("ui medium image").attr("src",gif)
-                ),
-            $("<div>").addClass("content")
-                .append(
-                    $("<div>").addClass("header").text(breweries[i].name),
-                    $("<div>").addClass("type").text("Brewery Type: "+breweries[i].brewery_type),
-                    $("<div>").addClass("adress").text(breweries[i].street),
-                    $("<div>").addClass("number").text("Phone Number: "+ breweries[i].phone),
-                    $("<div>").addClass("description").text("Description"), //Description not contained in JSON data
-                    $("<div>").addClass("review").text("REVIEW"), //Review Data not contained in JSON data
-                )
-        );
-        $("#card-container").append($breweryCard); //<= places info on page
-    });
-    }
-}
 
 let randomNumber = function (min, max) {
     let value = Math.floor(Math.random()*(max - min +1)+min);
