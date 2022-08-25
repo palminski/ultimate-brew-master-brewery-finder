@@ -91,20 +91,24 @@ const updateBeerQuote = () => {
     $("#beer-quote").html(quoteToDisplay.quote+"<br><span>"+quoteToDisplay.author+"</span>");
 }
 
-const searchBrewery = (locationInput,breweryInput) => {
+const searchBrewery = (locationInput,stateInput,breweryInput) => {
     // Declaring the basis of the url to be used with the API
     // const API_URL = "https://api.openbrewerydb.org/breweries?per_page=10&by_city=san_diego&by_name=cooper";
     let locationParameter = "";
     let breweryParameter = "";
+    let stateParameter = "";
     const API_URL_BASE = "https://api.openbrewerydb.org/breweries?per_page=20";
     //Check to see if search terms were entered and then create a querry string based off the input
     if (locationInput) {
-        locationParameter = "&by_city="+locationInput ;
+        locationParameter = "&by_city="+locationInput;
+    }
+    if (stateInput) {
+        stateParameter = "&by_state="+stateInput;
     }
     if (breweryInput) {
         breweryParameter = "&by_name="+breweryInput ;
     }
-    let API_URL = API_URL_BASE+locationParameter+breweryParameter
+    let API_URL = API_URL_BASE+locationParameter+stateParameter+breweryParameter;
 
     fetch(API_URL).then(function (response) {
         return response.json();
@@ -118,15 +122,15 @@ const searchBrewery = (locationInput,breweryInput) => {
 const listBreweries = (breweries) => {
 
     $("#card-container").html("");
-    let gifIncriment = randomNumber(0,3);
 
+    //Randomly shuffles an array to be used when determining the gif to use for each card
     let numberTOGrab = 50;
         let startingArray = [];
         for (let i =0; i < numberTOGrab; i++){
             startingArray.push(i)
         }
     let randomArray = shuffle(startingArray);
-    console.log(randomArray);
+   
 
     for (let i = 0; i< breweries.length; i++) {
         //Grab Gif
@@ -135,7 +139,7 @@ const listBreweries = (breweries) => {
         }).then(function (data) {
             
             let gif = data.data[randomArray[i]].images.original.url;
-            console.log(randomArray[i]);
+
         
         //Make and append Brewery Cards
         let $breweryCard = $("<a>")
@@ -150,7 +154,7 @@ const listBreweries = (breweries) => {
                 .append(
                     $("<div>").addClass("header").text(breweries[i].name),
                     $("<div>").addClass("type").text("Brewery Type: "+breweries[i].brewery_type),
-                    $("<div>").addClass("adress").text(breweries[i].street + " " + breweries[i].state),
+                    $("<div>").addClass("adress").text(breweries[i].street + " " + breweries[i].city + " " + breweries[i].state),
                     $("<div>").addClass("number").text("Phone Number: "+ breweries[i].phone),
                     // $("<div>").addClass("description").text("Description"), //Description not contained in JSON data
                     // $("<div>").addClass("review").text("REVIEW"), //Review Data not contained in JSON data
@@ -164,9 +168,11 @@ const listBreweries = (breweries) => {
 const formSubmitHandler = (event) => {
     event.preventDefault();
     locationInput = $("#location-input").val();
+    stateInput = $("#state-input").val();
     breweryInput = $("#brewery-input").val();
+    
     updateBeerQuote();
-    searchBrewery(locationInput,breweryInput);
+    searchBrewery(locationInput,stateInput,breweryInput);
 }
 
 
