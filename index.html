@@ -15,18 +15,24 @@
 
 <body>
     <header>
+        <div class="ui two column doubling stackable grid container"></div>
+        <div id="title-el" class="column">
         <h1>Ultimate Brew Master</h1>
-        <div class="about-us">
-            <p class="about">Are the stresses of the world getting to you? Are you trying to find a place between where
-                you and your friends live to grab a drink? How about needing assistance setting up a weekend brewery
-                crawl? Whatever your
-                reason is we are here to help. Ultimate Brew Master was created by a group of friends to help people
-                everywhere find breweries in there area. Whatever your need is we here to help find the perfect fit.</p>
+    </div>
+        <div class="column" id="about-us">
+                <div class="about">
+                    <p>“Let no man thirst for good beer.”</p>
+                    <p>–Sam Adams</p>
+                </div>
+        </div>
         </div>
     </header>
     <div class="search-container">
         <div class="ui search ui two column centered grid">
-            <form id="search-form" class="ui icon input search-bar row input-form">
+
+            <form class="ui icon input search-bar row" id="search-form">
+                <div id="input-form">
+
                 <div class="ui icon input input-field1">
                     <input type="text" id="location-input" placeholder="Optional: Enter Location" class="column">
                     <i class="search icon"></i>
@@ -35,11 +41,12 @@
                     <input type="text" id="brewery-input" placeholder="Optional: Enter Brewery" class="column">
                     <i class="search icon"></i>
                 </div>
+            </div>
                 <button class="ui primary button" id="search-btn">
                     Search
                 </button>
             </form>
-            <div class="results"></div>
+            
         </div>
     </div>
     <div class="map">
