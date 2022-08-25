@@ -235,11 +235,7 @@ footer li {
     }
 
     header {
-<<<<<<< HEAD
-        background-image: url("../images/beer_background3.jpg");
-=======
         background-image: url("../images/beer_background2.jpg");
->>>>>>> 4cf7e2531da71004459cfb6c3a05b669a40e4b85
         height: 600px;
         background-size: cover;
         background-position: center;
