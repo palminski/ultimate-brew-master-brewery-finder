@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+
 .ui.card>.image>img, .ui.cards>.card>.image>img {
     display: flex;
     width: 100%;
@@ -66,7 +67,7 @@ body {
     font-family: 'Baloo 2';
 }
 
-.search-container {
+#search-container {
     margin: 10px 30px;
 }
 
@@ -113,7 +114,6 @@ body {
 .ui.card.brew-card {
     border: var(--main-font-color) solid 4px;
     flex-wrap: wrap;
-    
 }
 
 .hops {
