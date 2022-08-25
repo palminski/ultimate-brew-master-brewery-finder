@@ -35,11 +35,11 @@ const listBreweries = (breweries) => {
     for (let i = 0; i< breweries.length; i++) {
         console.log(breweries[i]);
 
-        fetch("http://api.giphy.com/v1/gifs/random?api_key=t8B9bOhzlzT6JWigjBj02k9eDnQx1nFI&tag=simpson-beer&rating=pg").then(function (response) {
+        fetch("http://api.giphy.com/v1/gifs/search?api_key=t8B9bOhzlzT6JWigjBj02k9eDnQx1nFI&q=simpsons-beer&rating=pg").then(function (response) {
             return response.json();
         }).then(function (data) {
-            // console.log(data.data.images.original.url);
-            let gif = data.data.images.original.url;
+            console.log(data);
+            let gif = data.data[i].images.original.url;
         
 
         let $breweryCard = $("<a>") //<= create a card to hold brewery info
@@ -65,7 +65,10 @@ const listBreweries = (breweries) => {
     }
 }
 
-
+let randomNumber = function (min, max) {
+    let value = Math.floor(Math.random()*(max - min +1)+min);
+    return value;
+}
 
 const formSubmitHandler = (event) => {
     event.preventDefault();
