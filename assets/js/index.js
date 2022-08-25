@@ -130,7 +130,7 @@ const listBreweries = (breweries) => {
 
     for (let i = 0; i< breweries.length; i++) {
         //Grab Gif
-        fetch("http://api.giphy.com/v1/gifs/search?api_key=t8B9bOhzlzT6JWigjBj02k9eDnQx1nFI&q=simpsons-beer&rating=pg&limit="+numberTOGrab).then(function (response) {
+        fetch("https://api.giphy.com/v1/gifs/search?api_key=t8B9bOhzlzT6JWigjBj02k9eDnQx1nFI&q=simpsons-beer&rating=pg&limit="+numberTOGrab).then(function (response) {
             return response.json();
         }).then(function (data) {
             
