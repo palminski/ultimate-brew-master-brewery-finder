@@ -109,6 +109,7 @@ const searchBrewery = (locationInput,breweryInput) => {
     fetch(API_URL).then(function (response) {
         return response.json();
     }).then(function (data) {
+        
         listBreweries(data);
 
     });
@@ -117,21 +118,30 @@ const searchBrewery = (locationInput,breweryInput) => {
 const listBreweries = (breweries) => {
 
     $("#card-container").html("");
+    let gifIncriment = randomNumber(0,3);
+
+    let numberTOGrab = 50;
+        let startingArray = [];
+        for (let i =0; i < numberTOGrab; i++){
+            startingArray.push(i)
+        }
+    let randomArray = shuffle(startingArray);
+    console.log(randomArray);
 
     for (let i = 0; i< breweries.length; i++) {
-        
-
-        fetch("http://api.giphy.com/v1/gifs/search?api_key=t8B9bOhzlzT6JWigjBj02k9eDnQx1nFI&q=simpsons-beer&rating=pg").then(function (response) {
+        //Grab Gif
+        fetch("http://api.giphy.com/v1/gifs/search?api_key=t8B9bOhzlzT6JWigjBj02k9eDnQx1nFI&q=simpsons-beer&rating=pg&limit="+numberTOGrab).then(function (response) {
             return response.json();
         }).then(function (data) {
             
-            let gif = data.data[i].images.original.url;
+            let gif = data.data[randomArray[i]].images.original.url;
+            console.log(randomArray[i]);
         
-
-        let $breweryCard = $("<a>") //<= create a card to hold brewery info
+        //Make and append Brewery Cards
+        let $breweryCard = $("<a>")
         .addClass("ui card brew-card")
         .attr("href",breweries[i].website_url).attr("target","_blank")
-        .append( //This is where information from the JSON data will be added to each card
+        .append(
             $("<div>").addClass("ui medium bordered image")
                 .append(
                     $("<img>").addClass("ui small image").attr("src",gif)
@@ -140,10 +150,10 @@ const listBreweries = (breweries) => {
                 .append(
                     $("<div>").addClass("header").text(breweries[i].name),
                     $("<div>").addClass("type").text("Brewery Type: "+breweries[i].brewery_type),
-                    $("<div>").addClass("adress").text(breweries[i].street),
+                    $("<div>").addClass("adress").text(breweries[i].street + " " + breweries[i].state),
                     $("<div>").addClass("number").text("Phone Number: "+ breweries[i].phone),
-                    $("<div>").addClass("description").text("Description"), //Description not contained in JSON data
-                    $("<div>").addClass("review").text("REVIEW"), //Review Data not contained in JSON data
+                    // $("<div>").addClass("description").text("Description"), //Description not contained in JSON data
+                    // $("<div>").addClass("review").text("REVIEW"), //Review Data not contained in JSON data
                 )
         );
         $("#card-container").append($breweryCard); //<= places info on page
@@ -159,9 +169,24 @@ const formSubmitHandler = (event) => {
     searchBrewery(locationInput,breweryInput);
 }
 
+
 let randomNumber = function (min, max) {
     let value = Math.floor(Math.random()*(max - min +1)+min);
     return value;
+}
+let shuffle = (array) => {
+    let i = array.length;
+    let j = 0;
+    let temp;
+
+    while (i--) {
+        j = Math.floor(Math.random() * (i+1)); //grabs number between 0 and current i
+
+        temp = array[i]; //holds onto item at current array spot
+        array[i] = array[j];   //makes current array spot equal randomly selected slot
+        array[j] = temp;    //makes randomly selected slot eauel whatever current slot is. essentially swapping them around. Just doing this for each slot in array to shuffle them like a deck of cards
+    }
+    return array
 }
 
 
