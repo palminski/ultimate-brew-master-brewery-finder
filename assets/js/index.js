@@ -48,7 +48,7 @@ const listBreweries = (breweries) => {
         .append( //This is where information from the JSON data will be added to each card
             $("<div>").addClass("ui medium bordered image")
                 .append(
-                    $("<img>").addClass("ui small image").attr("src",gif)
+                    $("<img>").addClass("ui medium image").attr("src",gif)
                 ),
             $("<div>").addClass("content")
                 .append(
