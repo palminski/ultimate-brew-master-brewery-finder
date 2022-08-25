@@ -3,6 +3,9 @@ const $locationInput = document.querySelector("#location-input");
 const $breweryInput = document.querySelector("#brewery-input");
 
 
+    
+
+
 const searchBrewery = (locationInput,breweryInput) => {
     // Declaring the basis of the url to be used with the API
     // const API_URL = "https://api.openbrewerydb.org/breweries?per_page=10&by_city=san_diego&by_name=cooper";
@@ -31,16 +34,25 @@ const listBreweries = (breweries) => {
 
     for (let i = 0; i< breweries.length; i++) {
         console.log(breweries[i]);
-        let $breweryCard = $("<div>") //<= create a card to hold brewery info
+
+        fetch("http://api.giphy.com/v1/gifs/random?api_key=t8B9bOhzlzT6JWigjBj02k9eDnQx1nFI&tag=simpson-beer&rating=pg").then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            // console.log(data.data.images.original.url);
+            let gif = data.data.images.original.url;
+        
+
+        let $breweryCard = $("<a>") //<= create a card to hold brewery info
         .addClass("ui card brew-card")
+        .attr("href",breweries[i].website_url).attr("target","_blank")
         .append( //This is where information from the JSON data will be added to each card
             $("<div>").addClass("ui medium bordered image")
                 .append(
-                    $("<img>").addClass("ui small image").attr("src","./assets/images/stock_photos/brewery17.jpeg")
+                    $("<img>").addClass("ui small image").attr("src",gif)
                 ),
             $("<div>").addClass("content")
                 .append(
-                    $("<a>").addClass("header").text(breweries[i].name).attr("href",breweries[i].website_url).attr("target","_blank"),
+                    $("<div>").addClass("header").text(breweries[i].name),
                     $("<div>").addClass("type").text("Brewery Type: "+breweries[i].brewery_type),
                     $("<div>").addClass("adress").text(breweries[i].street),
                     $("<div>").addClass("number").text("Phone Number: "+ breweries[i].phone),
@@ -49,8 +61,11 @@ const listBreweries = (breweries) => {
                 )
         );
         $("#card-container").append($breweryCard); //<= places info on page
+    });
     }
 }
+
+
 
 const formSubmitHandler = (event) => {
     event.preventDefault();
@@ -60,6 +75,6 @@ const formSubmitHandler = (event) => {
     searchBrewery(locationInput,breweryInput);
 }
 
-searchBrewery("","");
+// console.log(getBeerGif());
 
 $("#search-form").on("submit", formSubmitHandler);
