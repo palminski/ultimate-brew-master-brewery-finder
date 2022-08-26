@@ -114,25 +114,28 @@ const listBreweries = (breweries) => {
 
         
         //Make and append Brewery Cards
-        let $breweryCard = $("<a>")
+        let $breweryCard = $("<div>")
         .addClass("ui card brew-card")
-        .attr("href",breweries[i].website_url).attr("target","_blank")
+        .attr("data-breweryID",(breweries[i].name+breweries[i].phone).replace(/\s+/g,""))
         .append(
-            $("<div>").addClass("ui medium bordered image")
+            $("<a>").addClass("ui medium bordered image").attr("href",breweries[i].website_url).attr("target","_blank")
                 .append(
                     $("<img>").addClass("ui small image").attr("src",gif)
                 ),
             $("<div>").addClass("content")
                 .append(
-                    $("<div>").addClass("header").text(breweries[i].name),
+                    $("<a>").addClass("header").text(breweries[i].name).attr("href",breweries[i].website_url).attr("target","_blank"),
                     $("<div>").addClass("type").text("Brewery Type: "+breweries[i].brewery_type),
                     $("<div>").addClass("adress").text(breweries[i].street + " " + breweries[i].city + " " + breweries[i].state),
                     $("<div>").addClass("number").text("Phone Number: "+ breweries[i].phone),
+                    $("<input>").attr("type","radio").attr("value",(breweries[i].name+breweries[i].phone).replace(/\s+/g,"")).addClass("favorite-radio")
                     // $("<div>").addClass("description").text("Description"), //Description not contained in JSON data
                     // $("<div>").addClass("review").text("REVIEW"), //Review Data not contained in JSON data
+                    
                 )
         );
         $("#card-container").append($breweryCard); //<= places info on page
+
     });
     }
 }
@@ -145,6 +148,12 @@ const formSubmitHandler = (event) => {
     
     updateBeerQuote();
     searchBrewery(locationInput,stateInput,breweryInput);
+}
+
+const favoriteRadioHandler = (event) => {
+    let clickedID = event.target.defaultValue;
+
+    $('*[data-breweryID="'+clickedID+'"]').append($("<div>").text("test"));
 }
 
 
@@ -170,3 +179,4 @@ let shuffle = (array) => {
 
 
 $("#search-form").on("submit", formSubmitHandler);
+$(document.body).on("click",".favorite-radio",favoriteRadioHandler);
