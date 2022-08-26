@@ -122,7 +122,7 @@ const listBreweries = (breweries) => {
                 //Make and append Brewery Cards
                 let $breweryCard = $("<a>")
                     .addClass("ui card brew-card")
-                    .attr("href", mapData).attr("target", "_blank")
+                    .attr("href", breweries[i].website_url).attr("target", "_blank")
                     .append(
                         $("<div>").addClass("ui medium bordered image")
                             .append(
