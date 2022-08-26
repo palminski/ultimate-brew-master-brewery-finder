@@ -98,7 +98,7 @@ const searchBrewery = (locationInput,stateInput,breweryInput) => {
 }
 
 const listBreweries = (breweries) => {
-
+    //clears all cards in card container
     $("#card-container").html("");
 
     //Randomly shuffles an array to be used when determining the gif to use for each card
@@ -171,6 +171,20 @@ const updateFavorites = () => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
 }
 
+const displayFavorites = () => {
+    $("#card-container").html("");
+    console.log(favorites);
+    for (let i = 0; i < favorites.length; i++){
+        let $breweryCard = $("<div>")
+            .addClass("ui card brew-card")
+            .attr("data-breweryID",favorites[i].id)
+            .html(favorites[i].html);
+        $("#card-container").append($breweryCard);
+    }
+    updateFavorites();
+
+}
+
 const formSubmitHandler = (event) => {
     event.preventDefault();
     locationInput = $("#location-input").val();
@@ -220,4 +234,5 @@ const shuffle = (array) => {
 
 
 $("#search-form").on("submit", formSubmitHandler);
+$("#display-favorites").on("click", displayFavorites);
 $(document.body).on("click",".favorite-checkbox",favoriteCheckboxHandler);
