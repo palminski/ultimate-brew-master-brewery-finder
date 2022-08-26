@@ -166,7 +166,7 @@ const removeFavorites = (ID) => {
 const updateFavorites = () => {
     $("input[type=checkbox]").attr("checked",false); //Sets all checkboxes off
     for (let i = 0; i < favorites.length; i++){
-        $("input[type=checkbox][value="+favorites[i].id+"]").attr("checked",true); //rechecks everything in favorites
+        $("input[type=checkbox][value="+JSON.stringify(favorites[i].id)+"]").attr("checked",true); //rechecks everything in favorites
     }
     localStorage.setItem("favorites", JSON.stringify(favorites));
 }
