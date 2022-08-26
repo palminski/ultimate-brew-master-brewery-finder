@@ -128,7 +128,7 @@ const listBreweries = (breweries) => {
                     $("<div>").addClass("type").text("Brewery Type: "+breweries[i].brewery_type),
                     $("<div>").addClass("adress").text(breweries[i].street + " " + breweries[i].city + " " + breweries[i].state),
                     $("<div>").addClass("number").text("Phone Number: "+ breweries[i].phone),
-                    $("<input>").attr("type","radio").attr("value",(breweries[i].name+breweries[i].phone).replace(/\s+/g,"")).addClass("favorite-radio")
+                    $("<input>").attr("type","checkbox").attr("value",(breweries[i].name+breweries[i].phone).replace(/\s+/g,"")).addClass("favorite-checkbox")
                     // $("<div>").addClass("description").text("Description"), //Description not contained in JSON data
                     // $("<div>").addClass("review").text("REVIEW"), //Review Data not contained in JSON data
                     
@@ -150,10 +150,11 @@ const formSubmitHandler = (event) => {
     searchBrewery(locationInput,stateInput,breweryInput);
 }
 
-const favoriteRadioHandler = (event) => {
+const favoriteCheckboxHandler = (event) => {
+    
     let clickedID = event.target.defaultValue;
-
-    $('*[data-breweryID="'+clickedID+'"]').append($("<div>").text("test"));
+    let clickedCard = $('*[data-breweryID="'+clickedID+'"]');
+    console.log(clickedCard.html());
 }
 
 
@@ -179,4 +180,4 @@ let shuffle = (array) => {
 
 
 $("#search-form").on("submit", formSubmitHandler);
-$(document.body).on("click",".favorite-radio",favoriteRadioHandler);
+$(document.body).on("click",".favorite-checkbox",favoriteCheckboxHandler);
