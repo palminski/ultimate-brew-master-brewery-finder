@@ -24,10 +24,6 @@ const beerQuotes = [
         quote: '“Beer, if drank with moderation, softens the temper, cheers the spirit and promotes health.”',
         author: '-Thomas Jefferson'
      },
-     {
-       quote: '“We should look for someone to eat and drink with before looking for something to eat and drink.”',
-       author: '—Epicurus'
-    },
     {
        quote: '“Let no man thirst for good beer.”',
        author: '–Sam Adams'

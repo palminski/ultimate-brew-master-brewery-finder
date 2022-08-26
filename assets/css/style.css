@@ -5,20 +5,13 @@
     box-sizing: border-box;
 }
 
-
-.ui.card>.image>img, .ui.cards>.card>.image>img {
-    display: flex;
-    width: 100%;
-    height: 215px;
-    border-radius: inherit;
-}
-
 :root {
     --main-font-color: #fcaa15;
     --main-td-color: white;
     --main-ts-color: black;
 }
 
+/* Header start */
 header {
     background-image: url("../images/beer_background.jpg");
     height: 600px;
@@ -59,6 +52,7 @@ h1 {
     text-align: center;
     font-size: 40px;
 }
+/* Header end */
 
 body {
     background-image: url("https://i.pinimg.com/736x/7e/d6/8a/7ed68a697fb3ce4b8f2accc3b1c595bc.jpg");
@@ -67,6 +61,7 @@ body {
     font-family: 'Baloo 2';
 }
 
+/* Search Bar Section */
 .search-container {
     margin: 10px 30px;
 }
@@ -86,7 +81,9 @@ body {
 .input-field2 {
     margin: 0 0 0 5px;
 }
+/* End Search Bar Section */
 
+/*
 .map {
     position: relative;
     overflow: hidden;
@@ -103,7 +100,9 @@ body {
     width: 100%;
     position: absolute;
 }
+*/
 
+/* Display Cards */
 #card-container {
     justify-content: center;
     display: flex;
@@ -117,6 +116,15 @@ body {
     
 }
 
+.ui.card>.image>img, .ui.cards>.card>.image>img {
+    display: flex;
+    width: 100%;
+    height: 215px;
+    border-radius: inherit;
+}
+/* End Display Cards */
+
+/* Footer */
 .hops {
     background-image: url("../images/hop-plant-vector-background.jpeg");;
     height: 150px;
@@ -141,7 +149,9 @@ footer li {
     font-family: goldman;
     text-shadow: var(--main-ts-color) 2px 2px;
 }
+/* End of Footer */
 
+/* Second HTML Page */
 .results-title {
     display: flex;
     flex-wrap: wrap;
@@ -213,7 +223,7 @@ footer li {
 
 @media only screen and (max-width: 900px) {
     #beer-quote, #quote-attribution { 
-        font-size: 35px;
+        font-size: 45px;
       }
   }
 
@@ -229,9 +239,9 @@ footer li {
       }
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 500px) {
     #beer-quote, #quote-attribution { 
-      font-size: 25px;
+      font-size: 35px;
     }
 
     header {
