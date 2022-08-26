@@ -2,6 +2,12 @@
 const $locationInput = document.querySelector("#location-input");
 const $breweryInput = document.querySelector("#brewery-input");
 
+let favorites = [];
+if (localStorage.getItem("favorites")){
+    favorites = JSON.parse(localStorage.getItem("favorites")) ;
+    console.log(favorites);
+}
+
 
 const beerQuotes = [
     {
@@ -135,9 +141,34 @@ const listBreweries = (breweries) => {
                 )
         );
         $("#card-container").append($breweryCard); //<= places info on page
-
+        updateFavorites();
     });
     }
+}
+
+const addFavorites = (ID,HTML) => {
+    favorites.push({
+        id: ID,
+        html: HTML
+    });
+    updateFavorites();
+}
+
+const removeFavorites = (ID) => {
+    for (let i =0; i < favorites.length; i++) {
+        if (favorites[i].id === ID) {
+            favorites.splice(i,1);
+        }
+    }
+    updateFavorites();
+}
+
+const updateFavorites = () => {
+    $("input[type=checkbox]").attr("checked",false); //Sets all checkboxes off
+    for (let i = 0; i < favorites.length; i++){
+        $("input[type=checkbox][value="+favorites[i].id+"]").attr("checked",true); //rechecks everything in favorites
+    }
+    localStorage.setItem("favorites", JSON.stringify(favorites));
 }
 
 const formSubmitHandler = (event) => {
@@ -154,15 +185,24 @@ const favoriteCheckboxHandler = (event) => {
     
     let clickedID = event.target.defaultValue;
     let clickedCard = $('*[data-breweryID="'+clickedID+'"]');
-    console.log(clickedCard.html());
+    let cardHTML = (clickedCard.html());
+
+    if (event.target.checked){
+        addFavorites(clickedID,cardHTML);
+    }
+    else
+    {
+        removeFavorites(clickedID);
+    }
+    
 }
 
 
-let randomNumber = function (min, max) {
+const randomNumber = function (min, max) {
     let value = Math.floor(Math.random()*(max - min +1)+min);
     return value;
 }
-let shuffle = (array) => {
+const shuffle = (array) => {
     let i = array.length;
     let j = 0;
     let temp;
