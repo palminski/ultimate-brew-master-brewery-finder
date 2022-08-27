@@ -109,38 +109,36 @@ const listBreweries = (breweries) => {
         fetch("https://api.giphy.com/v1/gifs/search?api_key=t8B9bOhzlzT6JWigjBj02k9eDnQx1nFI&q=simpsons-beer&rating=pg&limit=" + numberTOGrab).then(function (response) {
             return response.json();
         }).then(function (data) {
-           
+
             let gif = data.data[randomArray[i]].images.original.url;
 
-            //Grab Map Data
-            fetch("https://api.geoapify.com/v1/geocode/search?text=" + breweries[i].street + "20%" + breweries[i].city + "20%" + breweries[i].state + "&format=json&apiKey=73e458ae5dad4e35ae00feb2132fe108").then(function (response) {
-                return response.json();
-            }).then(function (data) {
+            //Make and append Brewery Cards
+            let $breweryCard = $("<a>")
+                .addClass("ui card brew-card")
+                // .attr("href", breweries[i].website_url).attr("target", "_blank")
+                .append(
+                    $("<div>").addClass("ui medium bordered image")
+                        .append(
+                            $("<img>").addClass("ui small image").attr("src", gif)
+                        ),
+                    $("<div>").addClass("content")
+                        .append(
+                            $("<div>").addClass("header").text(breweries[i].name),
+                            $("<div>").addClass("type").text("Brewery Type: " + breweries[i].brewery_type),
+                            $("<div>").addClass("address").text(breweries[i].street + " " + breweries[i].city + " " + breweries[i].state),
+                            $("<div>").addClass("number").text("Phone Number: " + breweries[i].phone),
+                            // $("<div>").addClass("description").text("Description"), //Description not contained in JSON data
+                            // $("<div>").addClass("review").text("REVIEW"), //Review Data not contained in JSON data
+                            $("<div>").addClass("url").text(breweries[i].website_url),
+                            $("<a>").attr("href", breweries[i].website_url).append(
+                                $("<button>").addClass("ui icon map button").text("Website")),
+                            $("<a>").append(
+                                $("<button>").addClass("ui icon map button").text("Map")),
 
+                        )
+                );
+            $("#card-container").append($breweryCard); //<= places info on page
 
-        
-                //Make and append Brewery Cards
-                let $breweryCard = $("<a>")
-                    .addClass("ui card brew-card")
-                    .attr("href", breweries[i].website_url).attr("target", "_blank")
-                    .append(
-                        $("<div>").addClass("ui medium bordered image")
-                            .append(
-                                $("<img>").addClass("ui small image").attr("src", gif)
-                            ),
-                        $("<div>").addClass("content")
-                            .append(
-                                $("<div>").addClass("header").text(breweries[i].name),
-                                $("<div>").addClass("type").text("Brewery Type: " + breweries[i].brewery_type),
-                                $("<div>").addClass("address").text(breweries[i].street + " " + breweries[i].city + " " + breweries[i].state),
-                                $("<div>").addClass("number").text("Phone Number: " + breweries[i].phone),
-                                // $("<div>").addClass("description").text("Description"), //Description not contained in JSON data
-                                // $("<div>").addClass("review").text("REVIEW"), //Review Data not contained in JSON data
-                                $("<div>").addClass("url").text(breweries[i].website_url)
-                            )
-                    );
-                $("#card-container").append($breweryCard); //<= places info on page
-            })
         });
 
     }
