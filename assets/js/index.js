@@ -130,9 +130,9 @@ const listBreweries = (breweries) => {
                             // $("<div>").addClass("description").text("Description"), //Description not contained in JSON data
                             // $("<div>").addClass("review").text("REVIEW"), //Review Data not contained in JSON data
                             $("<div>").addClass("url").text(breweries[i].website_url),
-                            $("<a>").attr("href", breweries[i].website_url).append(
+                            $("<a>").attr("href", breweries[i].website_url).attr("target", "_blank").append(
                                 $("<button>").addClass("ui icon map button").text("Website")),
-                            $("<a>").append(
+                            $("<a>").attr("href", "https://www.google.com/maps/search/" + breweries[i].street + ", " + breweries[i].city + ", " + breweries[i].state + breweries[i].name).attr("target", "_blank").append(
                                 $("<button>").addClass("ui icon map button").text("Map")),
 
                         )
@@ -143,6 +143,7 @@ const listBreweries = (breweries) => {
 
     }
 }
+
 
 const formSubmitHandler = (event) => {
     event.preventDefault();
