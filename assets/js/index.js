@@ -112,6 +112,18 @@ const listBreweries = (breweries) => {
 
             let gif = data.data[randomArray[i]].images.original.url;
 
+
+            // Hide "Website" Button when no URL is avaliable.
+            // const hideWebsiteURL = function(){
+            //     let website_url = document.getElementById("url");
+            //     if (website_url === breweries[i].website_url){
+            //         website_url.style.visibility="visible"
+            //     } else {
+            //         website_url.style.visibility="hidden"
+            //     } 
+            // }
+
+
             //Make and append Brewery Cards
             let $breweryCard = $("<a>")
                 .addClass("ui card brew-card")
@@ -130,17 +142,19 @@ const listBreweries = (breweries) => {
                             // $("<div>").addClass("description").text("Description"), //Description not contained in JSON data
                             // $("<div>").addClass("review").text("REVIEW"), //Review Data not contained in JSON data
                             $("<div>").addClass("url").text(breweries[i].website_url),
-                            $("<a>").attr("href", breweries[i].website_url).attr("target", "_blank").append(
+                            $("<a>").attr("href", breweries[i].website_url).attr("target", "_blank").attr("id", "url").append(
                                 $("<button>").addClass("ui icon map button").text("Website")),
                             $("<a>").attr("href", "https://www.google.com/maps/search/" + breweries[i].street + ", " + breweries[i].city + ", " + breweries[i].state + breweries[i].name).attr("target", "_blank").append(
                                 $("<button>").addClass("ui icon map button").text("Map")),
-
+                            
+                            
                         )
+                        
                 );
             $("#card-container").append($breweryCard); //<= places info on page
 
         });
-
+        
     }
 }
 
