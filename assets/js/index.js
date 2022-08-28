@@ -2,6 +2,12 @@
 const $locationInput = document.querySelector("#location-input");
 const $breweryInput = document.querySelector("#brewery-input");
 
+let favorites = [];
+if (localStorage.getItem("favorites")){
+    favorites = JSON.parse(localStorage.getItem("favorites")) ;
+    console.log(favorites);
+}
+
 
 const beerQuotes = [
     {
@@ -92,7 +98,7 @@ const searchBrewery = (locationInput, stateInput, breweryInput) => {
 }
 
 const listBreweries = (breweries) => {
-
+    //clears all cards in card container
     $("#card-container").html("");
 
     //Randomly shuffles an array to be used when determining the gif to use for each card
@@ -110,10 +116,9 @@ const listBreweries = (breweries) => {
             return response.json();
         }).then(function (data) {
 
-            let gif = data.data[randomArray[i]].images.original.url;
-
-
-            // Hide "Website" Button when no URL is avaliable.
+            let gif = data.data[randomArray[i]].images.original.url; 
+        
+        // Hide "Website" Button when no URL is avaliable.
             // const hideWebsiteURL = function(){
             //     let website_url = document.getElementById("url");
             //     if (website_url === breweries[i].website_url){
@@ -122,42 +127,77 @@ const listBreweries = (breweries) => {
             //         website_url.style.visibility="hidden"
             //     } 
             // }
-
-
-            //Make and append Brewery Cards
-            let $breweryCard = $("<a>")
-                .addClass("ui card brew-card")
-                // .attr("href", breweries[i].website_url).attr("target", "_blank")
-                .append(
-                    $("<div>").addClass("ui medium bordered image")
-                        .append(
-                            $("<img>").addClass("ui small image").attr("src", gif)
-                        ),
-                    $("<div>").addClass("content")
-                        .append(
-                            $("<div>").addClass("header").text(breweries[i].name),
-                            $("<div>").addClass("type").text("Brewery Type: " + breweries[i].brewery_type),
-                            $("<div>").addClass("address").text(breweries[i].street + " " + breweries[i].city + " " + breweries[i].state),
-                            $("<div>").addClass("number").text("Phone Number: " + breweries[i].phone),
-                            // $("<div>").addClass("description").text("Description"), //Description not contained in JSON data
-                            // $("<div>").addClass("review").text("REVIEW"), //Review Data not contained in JSON data
-                            $("<div>").addClass("url").text(breweries[i].website_url),
-                            $("<a>").attr("href", breweries[i].website_url).attr("target", "_blank").attr("id", "url").append(
-                                $("<button>").addClass("ui icon map button").text("Website")),
-                            $("<a>").attr("href", "https://www.google.com/maps/search/" + breweries[i].street + ", " + breweries[i].city + ", " + breweries[i].state + breweries[i].name).attr("target", "_blank").append(
-                                $("<button>").addClass("ui icon map button").text("Map")),
-                            
-                            
-                        )
-                        
-                );
-            $("#card-container").append($breweryCard); //<= places info on page
-
-        });
         
+        //Make and append Brewery Cards
+        let $breweryCard = $("<div>")
+        .addClass("ui card brew-card")
+        .attr("data-breweryID",(breweries[i].name+breweries[i].phone).replace(/\s+/g,""))
+        .append(
+            $("<a>").addClass("ui medium bordered image").attr("href",breweries[i].website_url).attr("target","_blank")
+                .append(
+                    $("<img>").addClass("ui small image").attr("src",gif)
+                ),
+            $("<div>").addClass("content")
+                .append(
+                    $("<a>").addClass("header").text(breweries[i].name).attr("href",breweries[i].website_url).attr("target","_blank"),
+                    $("<div>").addClass("type").text("Brewery Type: "+breweries[i].brewery_type),
+                    $("<div>").addClass("adress").text(breweries[i].street + " " + breweries[i].city + " " + breweries[i].state),
+                    $("<div>").addClass("number").text("Phone Number: "+ breweries[i].phone),
+                    $("<input>").attr("type","checkbox").attr("value",(breweries[i].name+breweries[i].phone).replace(/\s+/g,"")).addClass("favorite-checkbox"),
+                    // $("<div>").addClass("description").text("Description"), //Description not contained in JSON data
+                    // $("<div>").addClass("review").text("REVIEW"), //Review Data not contained in JSON data
+                    $("<a>").attr("href", breweries[i].website_url).attr("target", "_blank").attr("id", "url").append(
+                           $("<button>").addClass("ui icon map button").text("Website")),
+                    $("<a>").attr("href", "https://www.google.com/maps/search/" + breweries[i].street + ", " + breweries[i].city + ", " + breweries[i].state + breweries[i].name).attr("target", "_blank").append(
+                           $("<button>").addClass("ui icon map button").text("Map")),
+                    
+                )
+        );
+        $("#card-container").append($breweryCard); //<= places info on page
+        updateFavorites();
+    });
     }
 }
 
+const addFavorites = (ID,HTML) => {
+    favorites.push({
+        id: ID,
+        html: HTML
+    });
+    updateFavorites();
+}
+
+const removeFavorites = (ID) => {
+    for (let i =0; i < favorites.length; i++) {
+        if (favorites[i].id === ID) {
+            favorites.splice(i,1);
+        }
+    }
+    updateFavorites();
+}
+
+const updateFavorites = () => {
+    $("input[type=checkbox]").attr("checked",false); //Sets all checkboxes off
+    for (let i = 0; i < favorites.length; i++){
+        $("input[type=checkbox][value="+JSON.stringify(favorites[i].id)+"]").attr("checked",true); //rechecks everything in favorites
+
+    }
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+}
+
+const displayFavorites = () => {
+    $("#card-container").html("");
+    console.log(favorites);
+    for (let i = 0; i < favorites.length; i++){
+        let $breweryCard = $("<div>")
+            .addClass("ui card brew-card")
+            .attr("data-breweryID",favorites[i].id)
+            .html(favorites[i].html);
+        $("#card-container").append($breweryCard);
+    }
+    updateFavorites();
+
+}
 
 const formSubmitHandler = (event) => {
     event.preventDefault();
@@ -169,12 +209,27 @@ const formSubmitHandler = (event) => {
     searchBrewery(locationInput, stateInput, breweryInput);
 }
 
+const favoriteCheckboxHandler = (event) => {
+    
+    let clickedID = event.target.defaultValue;
+    let clickedCard = $('*[data-breweryID="'+clickedID+'"]');
+    let cardHTML = (clickedCard.html());
 
-let randomNumber = function (min, max) {
-    let value = Math.floor(Math.random() * (max - min + 1) + min);
+    if (event.target.checked){
+        addFavorites(clickedID,cardHTML);
+    }
+    else
+    {
+        removeFavorites(clickedID);
+    }
+    
+}
+
+const randomNumber = function (min, max) {
+    let value = Math.floor(Math.random()*(max - min +1)+min);
     return value;
 }
-let shuffle = (array) => {
+const shuffle = (array) => {
     let i = array.length;
     let j = 0;
     let temp;
@@ -192,3 +247,5 @@ let shuffle = (array) => {
 
 
 $("#search-form").on("submit", formSubmitHandler);
+$("#display-favorites").on("click", displayFavorites);
+$(document.body).on("click",".favorite-checkbox",favoriteCheckboxHandler);
