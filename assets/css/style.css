@@ -229,6 +229,12 @@ footer li {
     width: 150px
 }
 
+#display-favorites:hover {
+    background-color: var(--main-td-color);
+    border: 6px solid var(--main-ts-color);
+    color: var(--main-ts-color);
+}
+
 @media only screen and (max-width: 900px) {
     #beer-quote, #quote-attribution { 
         font-size: 35px;
