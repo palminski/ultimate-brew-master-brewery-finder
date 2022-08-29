@@ -235,6 +235,10 @@ footer li {
     color: var(--main-ts-color);
 }
 
+.fav-text {
+    font-size: medium;
+}
+
 @media only screen and (max-width: 900px) {
     #beer-quote, #quote-attribution { 
         font-size: 35px;
