@@ -211,6 +211,24 @@ footer li {
     color: var(--main-ts-color);
 }
 
+#btnCon {
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+#display-favorites {
+    font-family: goldman;
+    font-size: small;
+    background-color: var(--main-ts-color);
+    border: 6px solid var(--main-font-color);
+    color: var(--main-font-color);
+    border-radius: 60px;
+    height: 40px;
+    width: 150px
+}
+
 @media only screen and (max-width: 900px) {
     #beer-quote, #quote-attribution { 
         font-size: 35px;
