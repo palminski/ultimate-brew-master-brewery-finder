@@ -45,7 +45,7 @@ h1 {
 
 #about-us {
     max-width: 600px;
-    padding: 100px 60px 0 60px;
+    padding: 30px 60px 0 60px;
     color: var(--main-td-color);
     font-size: 20px;
     display: flex;
@@ -67,7 +67,7 @@ body {
     font-family: 'Baloo 2';
 }
 
-#search-container {
+.search-container {
     margin: 10px 30px;
 }
 
@@ -114,6 +114,7 @@ body {
 .ui.card.brew-card {
     border: var(--main-font-color) solid 4px;
     flex-wrap: wrap;
+    
 }
 
 .hops {
@@ -210,6 +211,12 @@ footer li {
     color: var(--main-ts-color);
 }
 
+@media only screen and (max-width: 900px) {
+    #beer-quote, #quote-attribution { 
+        font-size: 35px;
+      }
+  }
+
 @media only screen and (max-width: 800px) {
     #search-form, #input-form { 
       flex-direction: column;
@@ -217,4 +224,31 @@ footer li {
     #about-us {
         padding: 0;
     }
+    #beer-quote, #quote-attribution { 
+        font-size: 35px;
+      }
+  }
+
+  @media only screen and (max-width: 600px) {
+    #beer-quote, #quote-attribution { 
+      font-size: 25px;
+    }
+
+    header {
+        background-image: url("../images/beer_background2.jpg");
+        height: 600px;
+        background-size: cover;
+        background-position: center;
+        border-bottom: 5px var(--main-td-color) solid;
+        box-shadow: var(--main-ts-color) 6px 6px;;
+    }
+
+  }
+
+  .hidden{
+    visibility: hidden;
+  }
+
+  .visible{
+    visibility: visible;
   }
