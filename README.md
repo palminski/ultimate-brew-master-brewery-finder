@@ -1,37 +1,46 @@
-# My Portfolio
-This portfolio contains information about me and my work as i continue to progress through coding boot camp.
+# Ultimate Brew Master
+## Description
+Ultimate Brew Master is a brewery location app that searches for brewerys near searched location in input fields </br>
+and has the ability to persist through sessions with a favorites button. </br>
+Created with:
+- HTML 5
+- CSS 3
+- Java Script
+- JQuery
+- Jquery UI
+- Google Fonts
+- Semantic UI
+- Open Breweries DB API
+- Giphy API
 
 ## User Story
 ```
-AS AN employer
-I WANT to view a potential employee's deployed portfolio of work samples
-SO THAT I can review samples of their work and assess whether they're a good candidate for an open position
+AS AN brewery enthusiast
+I WANT to be able to search for nearby breweries
+SO THAT I can vist breweries accordingly
 ```
 
 ## Acceptance Criteria
-
-requirements of this project are written below...
-
 ```
-GIVEN I need to sample a potential employee's previous work
-WHEN I load their portfolio
-THEN I am presented with the developer's name, a recent photo or avatar, and links to sections about them, their work, and how to contact them
-WHEN I click one of the links in the navigation
-THEN the UI scrolls to the corresponding section
-WHEN I click on the link to the section about their work
-THEN the UI scrolls to a section with titled images of the developer's applications
-WHEN I am presented with the developer's first application
-THEN that application's image should be larger in size than the others
-WHEN I click on the images of the applications
-THEN I am taken to that deployed application
-WHEN I resize the page or view the site on various screens and devices
-THEN I am presented with a responsive layout that adapts to my viewport
+GIVEN I need to find local breweries
+WHEN I input my location within the search field
+THEN I am presented with breweries based on search results
+WHEN I click one of the brewery links
+THEN I am taken to the breweries website
+WHEN I click on the map button
+THEN I am directed to a map with the breweries location
+WHEN I add the brewery as a favorite
+THEN I can access favorites with my breweries persisting throguh sessions.
 ```
 
 ## GitPages Link
 
-https://dodgemech.github.io/Portfolio/
 
 ## Screenshot
 
-![_C__Users_Armym_Documents_bootcamp-stuff_homeworks_portfolio_index html](https://user-images.githubusercontent.com/107086158/181425294-976fa535-a5aa-467d-b7fe-3679bcb8a275.png)
+## Created By
+- Travis Geers https://github.com/Dodgemech
+- Dean Dunivan https://github.com/deand925
+- Jake Schlei https://github.com/JakeSchlei
+- William Bolls https://github.com/palminski
+
