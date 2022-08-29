@@ -218,7 +218,7 @@ footer li {
     margin-top: 40px;
 }
 
-#display-favorites {
+#display-favorites, #favorites {
     font-family: goldman;
     font-size: small;
     background-color: var(--main-ts-color);
@@ -259,7 +259,7 @@ footer li {
     }
 
     header {
-        background-image: url("../images/beer_background2.jpg");
+        background-image: url("../images/beer_background3.jpg");
         height: 600px;
         background-size: cover;
         background-position: center;

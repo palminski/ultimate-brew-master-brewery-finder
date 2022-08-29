@@ -22,13 +22,13 @@ https://github.com/palminski/ultimate-brew-master-brewery-finder.git
 ## Created by:
 
 Travis Greers 
+https://github.com/Dodgemech
 
 William Bolls
+https://github.com/palminski
 
 Jake Schlei
+https://github.com/JakeSchlei
 
 Dean Dunivan
-
-
-
-## Contact Info:
+https://github.com/deand925
