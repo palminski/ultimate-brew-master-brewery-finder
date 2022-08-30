@@ -1,6 +1,6 @@
 # Ultimate Brew Master
 ## Description
-Ultimate Brew Master is a brewery location app that searches for brewerys near searched location in input fields </br>
+Ultimate Brew Master is a brewery location app that searches for breweries near searched location in input fields </br>
 and has the ability to persist through sessions with a favorites button. </br>
 Created with:
 - HTML 5
