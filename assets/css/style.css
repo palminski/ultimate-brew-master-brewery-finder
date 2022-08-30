@@ -235,12 +235,6 @@ background-color: rgba(252, 170, 21, .8 )
     margin-top: 40px;
 }
 
-#display-favorites:hover {
-    background-color: var(--main-td-color);
-    border: 6px solid var(--main-ts-color);
-    color: var(--main-ts-color);
-}
-
 #display-favorites {
     font-family: goldman;
     font-size: small;
@@ -296,17 +290,17 @@ background-color: rgba(252, 170, 21, .8 )
     visibility: visible;
   }
 
-  .fancy-checkbox input[type="checkbox"],
-.fancy-checkbox #filled {
+  .star-checkbox input[type="checkbox"],
+.star-checkbox #filled {
     display: none;
 }
  
-.fancy-checkbox input[type="checkbox"]:checked ~ #filled
+.star-checkbox input[type="checkbox"]:checked ~ #filled
 {
     display: inline-block;
 }
  
-.fancy-checkbox input[type="checkbox"]:checked ~ #outline {
+.star-checkbox input[type="checkbox"]:checked ~ #outline {
     display: none;
 }
 

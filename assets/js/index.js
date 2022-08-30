@@ -1,6 +1,3 @@
-//HTML elements on page. These may be unneeded if we use jQuerry
-const $locationInput = document.querySelector("#location-input");
-const $breweryInput = document.querySelector("#brewery-input");
 
 let favorites = [];
 if (localStorage.getItem("favorites")) {
@@ -109,7 +106,6 @@ const listBreweries = (breweries) => {
     }
     let randomArray = shuffle(startingArray);
 
-
     for (let i = 0; i < breweries.length; i++) {
         //Grab Gif
         fetch("https://api.giphy.com/v1/gifs/search?api_key=t8B9bOhzlzT6JWigjBj02k9eDnQx1nFI&q=simpsons-beer&rating=pg&limit=" + numberTOGrab).then(function (response) {
@@ -117,16 +113,6 @@ const listBreweries = (breweries) => {
         }).then(function (data) {
 
             let gif = data.data[randomArray[i]].images.original.url;
-
-            // Hide "Website" Button when no URL is avaliable.
-            // const hideWebsiteURL = function(){
-            //     let website_url = document.getElementById("url");
-            //     if (website_url === breweries[i].website_url){
-            //         website_url.style.visibility="visible"
-            //     } else {
-            //         website_url.style.visibility="hidden"
-            //     } 
-            // }
 
             //Make and append Brewery Cards
             let $breweryCard = $("<div>")
@@ -147,10 +133,14 @@ const listBreweries = (breweries) => {
                             $("<div>").addClass("adress").text(breweries[i].street + " " + breweries[i].city + " " + breweries[i].state),
                             $("<div>").addClass("number").text("Phone Number: " + breweries[i].phone),
                             $("<a>").attr("href", "https://www.google.com/maps/search/" + breweries[i].street + ", " + breweries[i].city + ", " + breweries[i].state + breweries[i].name).attr("target", "_blank").append(
-                                $("<button>").addClass("ui icon map button").text("Map")),
-                            $("</br>"),
-                            $("<input>").attr("type", "checkbox").attr("value", (breweries[i].name + breweries[i].phone).replace(/\s+/g, "")).addClass("favorite-checkbox"),
-                            $("<span>").addClass("fav-text").text(" Favorites"),
+                                $("<button>").addClass("ui icon map button").text("Map").attr("id", "favorites")),
+                            
+                            $("<label>").addClass("star-checkbox").append(
+                                $("<input>").attr("type", "checkbox").attr("value", (breweries[i].name + breweries[i].phone).replace(/\s+/g, "")).addClass("favorite-checkbox"),
+                                $("<i>").addClass("heart icon").attr("id","filled"),
+                                $("<i>").addClass("heart outline icon").attr("id","outline"),
+                            ),
+                           
                         )
                 );
             }
@@ -161,17 +151,21 @@ const listBreweries = (breweries) => {
                             $("<img>").addClass("ui small image").attr("src", gif)
                         ),
                     $("<div>").addClass("content")
-                        .append(
-                            $("<div>").addClass("header").text(breweries[i].name),
-                            $("<div>").addClass("type").text("Brewery Type: " + breweries[i].brewery_type),
-                            $("<div>").addClass("adress").text(breweries[i].street + " " + breweries[i].city + " " + breweries[i].state),
-                            $("<div>").addClass("number").text("Phone Number: " + breweries[i].phone),
-                            $("<a>").attr("href", "https://www.google.com/maps/search/" + breweries[i].street + ", " + breweries[i].city + ", " + breweries[i].state + breweries[i].name).attr("target", "_blank").append(
-                                $("<button>").addClass("ui icon map button").text("Map")),
-                            $("</br>"),
+                    .append(
+                        $("<a>").addClass("header").text(breweries[i].name).attr("href", breweries[i].website_url).attr("target", "_blank"),
+                        $("<div>").addClass("type").text("Brewery Type: " + breweries[i].brewery_type),
+                        $("<div>").addClass("adress").text(breweries[i].street + " " + breweries[i].city + " " + breweries[i].state),
+                        $("<div>").addClass("number").text("Phone Number: " + breweries[i].phone),
+                        $("<a>").attr("href", "https://www.google.com/maps/search/" + breweries[i].street + ", " + breweries[i].city + ", " + breweries[i].state + breweries[i].name).attr("target", "_blank").append(
+                            $("<button>").addClass("ui icon map button").text("Map").attr("id", "favorites")),
+                        
+                        $("<label>").addClass("star-checkbox").append(
                             $("<input>").attr("type", "checkbox").attr("value", (breweries[i].name + breweries[i].phone).replace(/\s+/g, "")).addClass("favorite-checkbox"),
-                            $("<span>").addClass("fav-text").text(" Favorites"),
-                            )
+                            $("<i>").addClass("heart icon").attr("id","filled"),
+                            $("<i>").addClass("heart outline icon").attr("id","outline"),
+                        ),
+                       
+                    )
                 );
             }
 
@@ -218,7 +212,6 @@ const displayFavorites = () => {
         $("#card-container").append($breweryCard);
     }
     updateFavorites();
-
 }
 
 const formSubmitHandler = (event) => {
@@ -243,7 +236,6 @@ const favoriteCheckboxHandler = (event) => {
     else {
         removeFavorites(clickedID);
     }
-
 }
 
 const randomNumber = function (min, max) {
@@ -264,8 +256,6 @@ const shuffle = (array) => {
     }
     return array
 }
-
-
 
 $("#search-form").on("submit", formSubmitHandler);
 $("#display-favorites").on("click", displayFavorites);
