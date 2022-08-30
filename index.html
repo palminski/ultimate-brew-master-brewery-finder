@@ -35,11 +35,21 @@
 
             <form class="ui icon input search-bar row" id="search-form">
                 <div id="input-form">
+                    <div class="ui icon input input-field2">
+                        <input type="text" id="brewery-input" placeholder="Enter Brewery" class="column">
+                        <i class="search icon"></i>
+                    </div>
 
+                    <div class="ui icon input input-field2">
+                        <input type="text" id="brewery-input" placeholder="Optional: Enter Brewery" class="column">
+                        <i class="search icon"></i>
+                    </div>
+                    
                     <div class="ui icon input input-field1">
                         <input type="text" id="location-input" placeholder="Optional: Enter Location" class="column">
                         <i class="search icon"></i>
                     </div>
+                    
                     <select id="state-input" class="ui search dropdown">
                         <option value="">State</option>
                         <option value="alabama">Alabama</option>
@@ -94,11 +104,9 @@
                         <option value="Wisconsin">Wisconsin</option>
                         <option value="Wyoming">Wyoming</option>
                     </select>
-                    <div class="ui icon input input-field2">
-                        <input type="text" id="brewery-input" placeholder="Optional: Enter Brewery" class="column">
-                        <i class="search icon"></i>
-                    </div>
+                    
                 </div>
+
                 <button class="ui primary button" id="search-btn">
                     Search
                 </button>
