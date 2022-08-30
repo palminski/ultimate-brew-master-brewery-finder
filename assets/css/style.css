@@ -179,7 +179,18 @@ footer li {
 }
 
 #location-input:focus {
-    background-color: var(--main-font-color);
+background-color: rgba(252, 170, 21, .8 )
+}
+
+#state-input {
+    height: auto;
+    border-radius: 60px;
+    border: 6px solid var(--main-ts-color);
+    font-family: goldman;
+    font-weight: bold;
+    font-size: x-large;
+    text-align: center;
+
 }
 
 #brewery-input {
@@ -209,6 +220,12 @@ footer li {
     background-color: var(--main-td-color);
     border: 6px solid var(--main-ts-color);
     color: var(--main-ts-color);
+}
+
+
+
+#state-input:focus {
+    background-color: rgba(252, 170, 21, .8 );
 }
 
 #btnCon {
