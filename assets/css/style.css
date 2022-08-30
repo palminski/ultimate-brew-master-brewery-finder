@@ -179,7 +179,7 @@ footer li {
 }
 
 #location-input:focus {
-    background-color: rgba(252, 170, 21, .8 )
+background-color: rgba(252, 170, 21, .8 )
 }
 
 #state-input {
@@ -204,7 +204,7 @@ footer li {
 }
 
 #brewery-input:focus {
-    background-color: rgba(252, 170, 21, .8 );
+    background-color: var(--main-font-color);
 }
 
 #search-btn {
@@ -214,7 +214,6 @@ footer li {
     border: 6px solid var(--main-font-color);
     color: var(--main-font-color);
     border-radius: 60px;
-
 }
 
 #search-btn:hover {
@@ -224,10 +223,10 @@ footer li {
 }
 
 
+
 #state-input:focus {
     background-color: rgba(252, 170, 21, .8 );
 }
-
 
 #btnCon {
     height: 50px;
@@ -236,7 +235,13 @@ footer li {
     margin-top: 40px;
 }
 
-#display-favorites, #favorites {
+#display-favorites:hover {
+    background-color: var(--main-td-color);
+    border: 6px solid var(--main-ts-color);
+    color: var(--main-ts-color);
+}
+
+#display-favorites {
     font-family: goldman;
     font-size: small;
     background-color: var(--main-ts-color);
@@ -253,46 +258,19 @@ footer li {
     color: var(--main-ts-color);
 }
 
-.fav-text {
-    font-size: medium;
-}
-
 @media only screen and (max-width: 900px) {
-    #beer-quote, #quote-attribution { 
-        font-size: 35px;
-      }
-  }
-
-
-
-  @media only screen and (max-width: 1500px) {
     #search-form, #input-form { 
       flex-direction: column;
-      align-items: center;
-      width: 80%;
     }
     #about-us {
         padding: 0;
     }
-
-}
-
-@media screen and (max-width: 600px) {
-     input[type=text] {
-      width: 100%;
-      margin-top: 0;
-    }
-    input::placeholder{
-        font-size: smaller;
-    } 
-  }
-
-
-@media only screen and (max-width: 800px) {
     #beer-quote, #quote-attribution { 
         font-size: 35px;
       }
   }
+
+
 
   @media only screen and (max-width: 600px) {
     #beer-quote, #quote-attribution { 
@@ -300,7 +278,7 @@ footer li {
     }
 
     header {
-        background-image: url("../images/beer_background3.jpg");
+        background-image: url("../images/beer_background2.jpg");
         height: 600px;
         background-size: cover;
         background-position: center;
@@ -317,4 +295,3 @@ footer li {
   .visible{
     visibility: visible;
   }
-
