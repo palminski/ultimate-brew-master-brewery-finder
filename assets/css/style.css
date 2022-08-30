@@ -228,7 +228,16 @@ footer li {
 }
 /* Footer End  */
 
-
+@media only screen and (max-width: 1500px) {
+    #search-form, #input-form { 
+      flex-direction: column;
+      align-items: center;
+      width: 80%;
+    }
+    #about-us {
+        padding: 0;
+    }
+}
 
 @media only screen and (max-width: 900px) {
     #search-form, #input-form { 
@@ -257,6 +266,18 @@ footer li {
         border-bottom: 5px var(--main-td-color) solid;
         box-shadow: var(--main-ts-color) 6px 6px;;
     }
+  }
+
+
+
+@media screen and (max-width: 600px) {
+     input[type=text] {
+      width: 100%;
+      margin-top: 0;
+    }
+    input::placeholder{
+        font-size: smaller;
+    } 
   }
 
 
