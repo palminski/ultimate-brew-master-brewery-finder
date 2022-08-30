@@ -170,7 +170,18 @@ footer li {
 }
 
 #location-input:focus {
-    background-color: var(--main-font-color);
+    background-color: rgba(252, 170, 21, .8 )
+}
+
+#states {
+    height: auto;
+    border-radius: 60px;
+    border: 6px solid var(--main-ts-color);
+    font-family: goldman;
+    font-weight: bold;
+    font-size: x-large;
+    text-align: center;
+
 }
 
 #brewery-input {
@@ -184,7 +195,7 @@ footer li {
 }
 
 #brewery-input:focus {
-    background-color: var(--main-font-color);
+    background-color: rgba(252, 170, 21, .8 );
 }
 
 #search-btn {
@@ -194,6 +205,7 @@ footer li {
     border: 6px solid var(--main-font-color);
     color: var(--main-font-color);
     border-radius: 60px;
+
 }
 
 #search-btn:hover {
@@ -202,11 +214,39 @@ footer li {
     color: var(--main-ts-color);
 }
 
-@media only screen and (max-width: 800px) {
+#states:focus {
+    background-color: rgba(252, 170, 21, .8 );
+}
+
+
+/* @media only screen and (max-width: 800px) {
     #search-form, #input-form { 
       flex-direction: column;
     }
     #about-us {
         padding: 0;
     }
+  } */
+
+  @media only screen and (max-width: 1500px) {
+    #search-form, #input-form { 
+      flex-direction: column;
+      align-items: center;
+      width: 80%;
+    }
+    #about-us {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+     input[type=text] {
+      width: 100%;
+      margin-top: 0;
+    }
+    input::placeholder{
+        font-size: smaller;
+    } 
   }
+
+    
