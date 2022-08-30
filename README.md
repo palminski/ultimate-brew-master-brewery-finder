@@ -30,7 +30,7 @@ THEN I am taken to the breweries website
 WHEN I click on the map button
 THEN I am directed to a map with the breweries location
 WHEN I add the brewery as a favorite
-THEN I can access favorites with my breweries persisting throguh sessions.
+THEN I can access favorites with my breweries persisting through sessions.
 ```
 
 ## GitPages Link
