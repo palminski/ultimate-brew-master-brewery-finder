@@ -7,7 +7,6 @@ Created with:
 - CSS 3
 - Java Script
 - JQuery
-- Jquery UI
 - Google Fonts
 - Semantic UI
 - Open Breweries DB API
