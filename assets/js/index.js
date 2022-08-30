@@ -147,7 +147,7 @@ const listBreweries = (breweries) => {
                             $("<div>").addClass("adress").text(breweries[i].street + " " + breweries[i].city + " " + breweries[i].state),
                             $("<div>").addClass("number").text("Phone Number: " + breweries[i].phone),
                             $("<a>").attr("href", "https://www.google.com/maps/search/" + breweries[i].street + ", " + breweries[i].city + ", " + breweries[i].state + breweries[i].name).attr("target", "_blank").append(
-                                $("<button>").addClass("ui icon map button").text("Map").attr("id", "favorites")),
+                                $("<button>").addClass("ui icon map button").text("Map")),
                             $("</br>"),
                             $("<input>").attr("type", "checkbox").attr("value", (breweries[i].name + breweries[i].phone).replace(/\s+/g, "")).addClass("favorite-checkbox"),
                             $("<span>").addClass("fav-text").text(" Favorites"),
@@ -167,7 +167,7 @@ const listBreweries = (breweries) => {
                             $("<div>").addClass("adress").text(breweries[i].street + " " + breweries[i].city + " " + breweries[i].state),
                             $("<div>").addClass("number").text("Phone Number: " + breweries[i].phone),
                             $("<a>").attr("href", "https://www.google.com/maps/search/" + breweries[i].street + ", " + breweries[i].city + ", " + breweries[i].state + breweries[i].name).attr("target", "_blank").append(
-                                $("<button>").addClass("ui icon map button").text("Map").attr("id", "favorites")),
+                                $("<button>").addClass("ui icon map button").text("Map")),
                             $("</br>"),
                             $("<input>").attr("type", "checkbox").attr("value", (breweries[i].name + breweries[i].phone).replace(/\s+/g, "")).addClass("favorite-checkbox"),
                             $("<span>").addClass("fav-text").text(" Favorites"),
