@@ -14,13 +14,12 @@
 </head>
 
 <body>
+    <!-- Header section Start -->
     <header>
-        <div class="ui two column doubling stackable grid container"></div>
-        <div id="title-el" class="column">
+        <div id="title-el">
             <h1>Ultimate Brew Master</h1>
-
         </div>
-        <div class="column" id="about-us">
+        <div id="about-us">
             <div class="about">
                 <p id="beer-quote">“Here's to alcohol: the cause of, and solution to, all of life's problems.”
                     <br>
@@ -30,22 +29,21 @@
         </div>
         </div>
     </header>
+    <!-- Header Section End -->
+    <!-- Search Bar Start  -->
     <div class="search-container">
         <div class="ui search ui two column centered grid">
-
             <form class="ui icon input search-bar row" id="search-form">
                 <div id="input-form">
-
                     <div class="ui icon input input-field2">
                         <input type="text" id="brewery-input" placeholder="Enter Brewery" class="column">
                         <i class="search icon"></i>
                     </div>
-                    
                     <div class="ui icon input input-field1">
                         <input type="text" id="location-input" placeholder="Enter Location" class="column">
                         <i class="search icon"></i>
                     </div>
-                    
+                    <!-- Drop down for State Selections -->
                     <select id="state-input" class="ui search dropdown">
                         <option value="">State</option>
                         <option value="alabama">Alabama</option>
@@ -100,26 +98,24 @@
                         <option value="Wisconsin">Wisconsin</option>
                         <option value="Wyoming">Wyoming</option>
                     </select>
-                    
                 </div>
-
                 <button class="ui primary button" id="search-btn">
                     Search
                 </button>
             </form>
-
         </div>
     </div>
-
+    <!-- Search Bar End  -->
+    <!-- Favorites Selection Button -->
     <div id="btnCon">
         <button id="display-favorites">Favorites</button>
     </div>
-
+    <!-- Favorites Button End  -->
     <!-- Generated Cards From JavaScript will go here -->
     <div class="ui cards" id="card-container">
         <!-- Cards will go Here -->
     </div>
-
+    <!-- Footer Start -->
     <footer class="hops">
         <div class="site-info">
             <ul>
@@ -128,11 +124,9 @@
             </ul>
         </div>
     </footer>
-
+    <!-- Footer End  -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
-        integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
         integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
