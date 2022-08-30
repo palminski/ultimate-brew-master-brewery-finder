@@ -295,3 +295,18 @@ background-color: rgba(252, 170, 21, .8 )
   .visible{
     visibility: visible;
   }
+
+  .fancy-checkbox input[type="checkbox"],
+.fancy-checkbox #filled {
+    display: none;
+}
+ 
+.fancy-checkbox input[type="checkbox"]:checked ~ #filled
+{
+    display: inline-block;
+}
+ 
+.fancy-checkbox input[type="checkbox"]:checked ~ #outline {
+    display: none;
+}
+
