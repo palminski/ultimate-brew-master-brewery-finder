@@ -150,7 +150,7 @@ const listBreweries = (breweries) => {
                                 $("<button>").addClass("ui icon map button").text("Map").attr("id", "favorites")),
                             $("</br>"),
                             $("<input>").attr("type", "checkbox").attr("value", (breweries[i].name + breweries[i].phone).replace(/\s+/g, "")).addClass("favorite-checkbox"),
-                            $("<span>").text("Favorites"),
+                            $("<span>").addClass("fav-text").text(" Favorites"),
                         )
                 );
             }
@@ -170,7 +170,7 @@ const listBreweries = (breweries) => {
                                 $("<button>").addClass("ui icon map button").text("Map").attr("id", "favorites")),
                             $("</br>"),
                             $("<input>").attr("type", "checkbox").attr("value", (breweries[i].name + breweries[i].phone).replace(/\s+/g, "")).addClass("favorite-checkbox"),
-                            $("<span>").addClass().text("Favorites"),
+                            $("<span>").addClass("fav-text").text(" Favorites"),
                             )
                 );
             }
