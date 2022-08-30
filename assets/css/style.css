@@ -204,7 +204,7 @@ background-color: rgba(252, 170, 21, .8 )
 }
 
 #brewery-input:focus {
-    background-color: var(--main-font-color);
+    background-color: rgba(252, 170, 21, .8 );
 }
 
 #search-btn {
@@ -310,3 +310,6 @@ background-color: rgba(252, 170, 21, .8 )
     display: none;
 }
 
+.fancy-checkbox:focus {
+    background-color: #fcaa15;
+}
