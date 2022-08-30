@@ -2,6 +2,15 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+}
+
+
+.ui.card>.image>img, .ui.cards>.card>.image>img {
+    display: flex;
+    width: 100%;
+    height: 215px;
+    border-radius: inherit;
 }
 
 :root {
@@ -19,6 +28,10 @@ header {
     box-shadow: var(--main-ts-color) 6px 6px;;
 }
 
+#title-el {
+    max-width: 800px;
+}
+
 h1 {
     color: var(--main-font-color);
     padding: 50px;
@@ -27,11 +40,12 @@ h1 {
     font-size: 48px;
     font-family: goldman;
     text-shadow: var(--main-ts-color) 3px 3px;
+    text-align: center;
 }
 
-.about-us {
-    width: 600px;
-    padding: 0 0 0 60px;
+#about-us {
+    max-width: 600px;
+    padding: 30px 60px 0 60px;
     color: var(--main-td-color);
     font-size: 20px;
     display: flex;
@@ -42,6 +56,8 @@ h1 {
     font-family: goldman;
     text-shadow: var(--main-ts-color) 3px 3px;
     flex-wrap: wrap;
+    text-align: center;
+    font-size: 40px;
 }
 
 body {
@@ -59,9 +75,8 @@ body {
     border-bottom: solid var(--main-td-color) 5px;
 }
 
-.input-field1, .input-field2 {
-    width: 40%;
-
+#input-form {
+    display: flex;
 }
 
 .input-field1 {
@@ -89,10 +104,11 @@ body {
     position: absolute;
 }
 
-.card-container {
+#card-container {
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    margin: 30px 0;
 }
 
 .ui.card.brew-card {
@@ -163,7 +179,18 @@ footer li {
 }
 
 #location-input:focus {
-    background-color: var(--main-font-color);
+background-color: rgba(252, 170, 21, .8 )
+}
+
+#state-input {
+    height: auto;
+    border-radius: 60px;
+    border: 6px solid var(--main-ts-color);
+    font-family: goldman;
+    font-weight: bold;
+    font-size: x-large;
+    text-align: center;
+
 }
 
 #brewery-input {
@@ -177,7 +204,7 @@ footer li {
 }
 
 #brewery-input:focus {
-    background-color: var(--main-font-color);
+    background-color: rgba(252, 170, 21, .8 );
 }
 
 #search-btn {
@@ -197,3 +224,86 @@ footer li {
 
 
 
+#state-input:focus {
+    background-color: rgba(252, 170, 21, .8 );
+}
+
+#btnCon {
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+#display-favorites {
+    font-family: goldman;
+    font-size: small;
+    background-color: var(--main-ts-color);
+    border: 6px solid var(--main-font-color);
+    color: var(--main-font-color);
+    border-radius: 60px;
+    height: 40px;
+    width: 150px
+}
+
+#display-favorites:hover {
+    background-color: var(--main-td-color);
+    border: 6px solid var(--main-ts-color);
+    color: var(--main-ts-color);
+}
+
+@media only screen and (max-width: 900px) {
+    #search-form, #input-form { 
+      flex-direction: column;
+    }
+    #about-us {
+        padding: 0;
+    }
+    #beer-quote, #quote-attribution { 
+        font-size: 35px;
+      }
+  }
+
+
+
+  @media only screen and (max-width: 600px) {
+    #beer-quote, #quote-attribution { 
+      font-size: 25px;
+    }
+
+    header {
+        background-image: url("../images/beer_background2.jpg");
+        height: 600px;
+        background-size: cover;
+        background-position: center;
+        border-bottom: 5px var(--main-td-color) solid;
+        box-shadow: var(--main-ts-color) 6px 6px;;
+    }
+
+  }
+
+  .hidden{
+    visibility: hidden;
+  }
+
+  .visible{
+    visibility: visible;
+  }
+
+  .star-checkbox input[type="checkbox"],
+.star-checkbox #filled {
+    display: none;
+}
+ 
+.star-checkbox input[type="checkbox"]:checked ~ #filled
+{
+    display: inline-block;
+}
+ 
+.star-checkbox input[type="checkbox"]:checked ~ #outline {
+    display: none;
+}
+
+.fancy-checkbox:focus {
+    background-color: #fcaa15;
+}

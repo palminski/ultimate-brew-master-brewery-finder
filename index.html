@@ -15,342 +15,109 @@
 
 <body>
     <header>
-        <h1>Ultimate Brew Master</h1>
-        <div class="about-us">
-            <p class="about">Are the stresses of the world getting to you? Are you trying to find a place between where
-                you and your friends live to grab a drink? How about needing assistance setting up a weekend brewery
-                crawl? Whatever your
-                reason is we are here to help. Ultimate Brew Master was created by a group of friends to help people
-                everywhere find breweries in there area. Whatever your need is we here to help find the perfect fit.</p>
+        <div class="ui two column doubling stackable grid container"></div>
+        <div id="title-el" class="column">
+            <h1>Ultimate Brew Master</h1>
+
+        </div>
+        <div class="column" id="about-us">
+            <div class="about">
+                <p id="beer-quote">“Here's to alcohol: the cause of, and solution to, all of life's problems.”
+                    <br>
+                    <span id="quote-attribution">–Homer Simpson</span>
+                </p>
+            </div>
+        </div>
         </div>
     </header>
     <div class="search-container">
         <div class="ui search ui two column centered grid">
-            <form class="ui icon input search-bar row input-form">
-                <div class="ui icon input input-field1">
-                    <input type="text" id="location-input" placeholder="Optional: Enter Location" class="column">
-                    <i class="search icon"></i>
+
+            <form class="ui icon input search-bar row" id="search-form">
+                <div id="input-form">
+
+                    <div class="ui icon input input-field2">
+                        <input type="text" id="brewery-input" placeholder="Enter Brewery" class="column">
+                        <i class="search icon"></i>
+                    </div>
+                    
+                    <div class="ui icon input input-field1">
+                        <input type="text" id="location-input" placeholder="Enter Location" class="column">
+                        <i class="search icon"></i>
+                    </div>
+                    
+                    <select id="state-input" class="ui search dropdown">
+                        <option value="">State</option>
+                        <option value="alabama">Alabama</option>
+                        <option value="Alaska">Alaska</option>
+                        <option value="Arizona">Arizona</option>
+                        <option value="Arkansas">Arkansas</option>
+                        <option value="California">California</option>
+                        <option value="Colorado">Colorado</option>
+                        <option value="Connecticut">Connecticut</option>
+                        <option value="Delaware">Delaware</option>
+                        <option value="District_Of_Columbia">District Of Columbia</option>
+                        <option value="Florida">Florida</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Hawaii">Hawaii</option>
+                        <option value="Idaho">Idaho</option>
+                        <option value="Illinois">Illinois</option>
+                        <option value="Indiana">Indiana</option>
+                        <option value="Iowa">Iowa</option>
+                        <option value="Kansas">Kansas</option>
+                        <option value="Kentucky">Kentucky</option>
+                        <option value="Louisiana">Louisiana</option>
+                        <option value="Maine">Maine</option>
+                        <option value="Maryland">Maryland</option>
+                        <option value="Massachusetts">Massachusetts</option>
+                        <option value="Michigan">Michigan</option>
+                        <option value="Minnesota">Minnesota</option>
+                        <option value="Mississippi">Mississippi</option>
+                        <option value="Missouri">Missouri</option>
+                        <option value="Montana">Montana</option>
+                        <option value="Nebraska">Nebraska</option>
+                        <option value="Nevada">Nevada</option>
+                        <option value="New_Hampshire">New Hampshire</option>
+                        <option value="New_Jersey">New Jersey</option>
+                        <option value="New_Mexico">New Mexico</option>
+                        <option value="New_York">New York</option>
+                        <option value="North_Carolina">North Carolina</option>
+                        <option value="North_Dakota">North Dakota</option>
+                        <option value="Ohio">Ohio</option>
+                        <option value="Oklahoma">Oklahoma</option>
+                        <option value="Oregon">Oregon</option>
+                        <option value="Pennsylvania">Pennsylvania</option>
+                        <option value="Rhode_Island">Rhode Island</option>
+                        <option value="South_Carolina">South Carolina</option>
+                        <option value="South_Dakota">South Dakota</option>
+                        <option value="Tennessee">Tennessee</option>
+                        <option value="Texas">Texas</option>
+                        <option value="Utah">Utah</option>
+                        <option value="Vermont">Vermont</option>
+                        <option value="Virginia">Virginia</option>
+                        <option value="Washington">Washington</option>
+                        <option value="West_Virginia">West Virginia</option>
+                        <option value="Wisconsin">Wisconsin</option>
+                        <option value="Wyoming">Wyoming</option>
+                    </select>
+                    
                 </div>
-                <div class="ui icon input input-field2">
-                    <input type="text" id="brewery-input" placeholder="Optional: Enter Brewery" class="column">
-                    <i class="search icon"></i>
-                </div>
+
                 <button class="ui primary button" id="search-btn">
                     Search
                 </button>
             </form>
-            <div class="results"></div>
+
         </div>
     </div>
-    <div class="map">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11181.722537189036!2d-122.69704999748025!3d45.52153905739079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950a1d983920d9%3A0xffc461bc589cc5ce!2sProvidence%20Park!5e0!3m2!1sen!2sus!4v1661284328766!5m2!1sen!2sus"
-            width="930" height="480" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+
+    <div id="btnCon">
+        <button id="display-favorites">Favorites</button>
     </div>
+
     <!-- Generated Cards From JavaScript will go here -->
-    <div class="card-container">
-        <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery17.jpeg">
-            </div>
-            <div class="content">
-                <a class="header">Brewery</a>
-                <div class="type">Brewery Type:</div>
-                <div class="address">Address:</div>
-                <div class="number">Phone Number:</div>
-                <div class="description">
-                    About:
-                </div>
-                <div class="review">Review:</div>
-            </div>
-        </div>
-        <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery1.jpeg">
-            </div>
-            <div class="content">
-                <a class="header">Brewery</a>
-                <div class="type">Brewery Type:</div>
-                <div class="address">Address:</div>
-                <div class="number">Phone Number:</div>
-                <div class="description">
-                    About:
-                </div>
-                <div class="review">Review:</div>
-            </div>
-        </div>
-        <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery10.jpeg">
-            </div>
-            <div class="content">
-                <a class="header">Brewery</a>
-                <div class="type">Brewery Type:</div>
-                <div class="address">Address:</div>
-                <div class="number">Phone Number:</div>
-                <div class="description">
-                    About:
-                </div>
-                <div class="review">Review:</div>
-            </div>
-        </div>
-        <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery2.jpeg">
-            </div>
-            <div class="content">
-                <a class="header">Brewery</a>
-                <div class="type">Brewery Type:</div>
-                <div class="address">Address:</div>
-                <div class="number">Phone Number:</div>
-                <div class="description">
-                    About:
-                </div>
-                <div class="review">Review:</div>
-            </div>
-        </div>
-        <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery11.jpeg">
-            </div>
-            <div class="content">
-                <a class="header">Brewery</a>
-                <div class="type">Brewery Type:</div>
-                <div class="address">Address:</div>
-                <div class="number">Phone Number:</div>
-                <div class="description">
-                    About:
-                </div>
-                <div class="review">Review:</div>
-            </div>
-        </div>
-        <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery3.jpeg">
-            </div>
-            <div class="content">
-                <a class="header">Brewery</a>
-                <div class="type">Brewery Type:</div>
-                <div class="address">Address:</div>
-                <div class="number">Phone Number:</div>
-                <div class="description">
-                    About:
-                </div>
-                <div class="review">Review:</div>
-            </div>
-        </div>
-        <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery12.jpeg">
-            </div>
-            <div class="content">
-                <a class="header">Brewery</a>
-                <div class="type">Brewery Type:</div>
-                <div class="address">Address:</div>
-                <div class="number">Phone Number:</div>
-                <div class="description">
-                    About:
-                </div>
-                <div class="review">Review:</div>
-            </div>
-        </div>
-        <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery4.jpeg">
-            </div>
-            <div class="content">
-                <a class="header">Brewery</a>
-                <div class="type">Brewery Type:</div>
-                <div class="address">Address:</div>
-                <div class="number">Phone Number:</div>
-                <div class="description">
-                    About:
-                </div>
-                <div class="review">Review:</div>
-            </div>
-        </div>
-        <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery13.jpeg">
-            </div>
-            <div class="content">
-                <a class="header">Brewery</a>
-                <div class="type">Brewery Type:</div>
-                <div class="address">Address:</div>
-                <div class="number">Phone Number:</div>
-                <div class="description">
-                    About:
-                </div>
-                <div class="review">Review:</div>
-            </div>
-        </div>
-        <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery5.jpeg">
-            </div>
-            <div class="content">
-                <a class="header">Brewery</a>
-                <div class="type">Brewery Type:</div>
-                <div class="address">Address:</div>
-                <div class="number">Phone Number:</div>
-                <div class="description">
-                    About:
-                </div>
-                <div class="review">Review:</div>
-            </div>
-        </div>
-        <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery14.jpeg">
-            </div>
-            <div class="content">
-                <a class="header">Brewery</a>
-                <div class="type">Brewery Type:</div>
-                <div class="address">Address:</div>
-                <div class="number">Phone Number:</div>
-                <div class="description">
-                    About:
-                </div>
-                <div class="review">Review:</div>
-            </div>
-        </div>
-        <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery6.jpeg">
-            </div>
-            <div class="content">
-                <a class="header">Brewery</a>
-                <div class="type">Brewery Type:</div>
-                <div class="address">Address:</div>
-                <div class="number">Phone Number:</div>
-                <div class="description">
-                    About:
-                </div>
-                <div class="review">Review:</div>
-            </div>
-        </div>
-        <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery15.webp">
-            </div>
-            <div class="content">
-                <a class="header">Brewery</a>
-                <div class="type">Brewery Type:</div>
-                <div class="address">Address:</div>
-                <div class="number">Phone Number:</div>
-                <div class="description">
-                    About:
-                </div>
-                <div class="review">Review:</div>
-            </div>
-        </div>
-        <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery7.jpeg">
-            </div>
-            <div class="content">
-                <a class="header">Brewery</a>
-                <div class="type">Brewery Type:</div>
-                <div class="address">Address:</div>
-                <div class="number">Phone Number:</div>
-                <div class="description">
-                    About:
-                </div>
-                <div class="review">Review:</div>
-            </div>
-        </div>
-        <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery16.jpeg">
-            </div>
-            <div class="content">
-                <a class="header">Brewery</a>
-                <div class="type">Brewery Type:</div>
-                <div class="address">Address:</div>
-                <div class="number">Phone Number:</div>
-                <div class="description">
-                    About:
-                </div>
-                <div class="review">Review:</div>
-            </div>
-        </div>
-        <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery8.jpeg">
-            </div>
-            <div class="content">
-                <a class="header">Brewery</a>
-                <div class="type">Brewery Type:</div>
-                <div class="address">Address:</div>
-                <div class="number">Phone Number:</div>
-                <div class="description">
-                    About:
-                </div>
-                <div class="review">Review:</div>
-            </div>
-        </div>
-        <div class="ui card brew-card">
-            <div class="image">
-                <img src="./assets/images/stock_photos/brewery20.jpeg">
-            </div>
-            <div class="content">
-                <a class="header">Brewery</a>
-                <div class="type">Brewery Type:</div>
-                <div class="address">Address:</div>
-                <div class="number">Phone Number:</div>
-                <div class="description">
-                    About:
-                </div>
-                <div class="review">Review:</div>
-        </div>
-    </div>
-    <div class="ui card brew-card">
-        <div class="image">
-            <img src="./assets/images/stock_photos/brewery8.jpeg">
-        </div>
-        <div class="content">
-            <a class="header">Brewery</a>
-            <div class="type">Brewery Type:</div>
-            <div class="address">Address:</div>
-            <div class="number">Phone Number:</div>
-            <div class="description">
-                About:
-            </div>
-            <div class="review">Review:</div>
-        </div>
-    </div>
-    <div class="ui card brew-card">
-        <div class="image">
-            <img src="./assets/images/stock_photos/brewery19.jpeg">
-        </div>
-        <div class="content">
-            <a class="header">Brewery</a>
-            <div class="type">Brewery Type:</div>
-            <div class="address">Address:</div>
-            <div class="number">Phone Number:</div>
-            <div class="description">
-                About:
-            </div>
-            <div class="review">Review:</div>
-        </div>
-    </div>
-    <div class="ui card brew-card">
-        <div class="image">
-            <img src="./assets/images/stock_photos/brewery18.webp">
-        </div>
-        <div class="content">
-            <a class="header">Brewery</a>
-            <div class="type">Brewery Type:</div>
-            <div class="address">Address:</div>
-            <div class="number">Phone Number:</div>
-            <div class="description">
-                About:
-            </div>
-            <div class="review">Review:</div>
-        </div>
-    </div>
+    <div class="ui cards" id="card-container">
+        <!-- Cards will go Here -->
     </div>
 
     <footer class="hops">
