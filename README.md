@@ -34,10 +34,9 @@ THEN I can access favorites with my breweries persisting throguh sessions.
 ```
 
 ## GitPages Link
-
-
+https://palminski.github.io/ultimate-brew-master-brewery-finder/
 ## Screenshot
-
+![_C__Users_Armym_Documents_bootcamp-stuff_homeworks_ultimate-brew-master-brewery-finder_index html](https://user-images.githubusercontent.com/107086158/187348571-ff96fa1b-d76c-4da3-9c37-e793a2f7a106.png)
 ## Created By
 - Travis Geers https://github.com/Dodgemech
 - Dean Dunivan https://github.com/deand925
