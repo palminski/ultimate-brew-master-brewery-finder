@@ -60,7 +60,7 @@ const beerQuotes = [
         author: '-William Shakespeare'
     }
 ]
-
+// Cycles through our array of beer quotes when a user searches
 const updateBeerQuote = () => {
     quoteToDisplay = beerQuotes[randomNumber(0, beerQuotes.length - 1)];
     $("#beer-quote").html(quoteToDisplay.quote + "<br><span>" + quoteToDisplay.author + "</span>");
@@ -176,7 +176,7 @@ const listBreweries = (breweries) => {
         displayError();
     }
 }
-
+// Displays error if no results can be found 
 const displayError = () => {
     $("#card-container").html("");
     $("#card-container").append(
@@ -184,7 +184,7 @@ const displayError = () => {
 
     );
 }
-
+// Favorites Section
 const addFavorites = (ID, HTML) => {
     favorites.push({
         id: ID,
@@ -223,7 +223,7 @@ const displayFavorites = () => {
     }
     updateFavorites();
 }
-
+// Favorite Section End 
 const formSubmitHandler = (event) => {
     event.preventDefault();
     locationInput = $("#location-input").val();
@@ -262,7 +262,7 @@ const shuffle = (array) => {
 
         temp = array[i]; //holds onto item at current array spot
         array[i] = array[j];   //makes current array spot equal randomly selected slot
-        array[j] = temp;    //makes randomly selected slot eauel whatever current slot is. essentially swapping them around. Just doing this for each slot in array to shuffle them like a deck of cards
+        array[j] = temp;    //makes randomly selected slot equel whatever current slot is. essentially swapping them around. Just doing this for each slot in array to shuffle them like a deck of cards
     }
     return array
 }
