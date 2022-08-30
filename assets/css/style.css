@@ -266,19 +266,16 @@ footer li {
         border-bottom: 5px var(--main-td-color) solid;
         box-shadow: var(--main-ts-color) 6px 6px;;
     }
+    input[type=text] {
+        width: 100%;
+        margin-top: 0;
+      }
+      input::placeholder{
+          font-size: smaller;
+      } 
   }
 
 
-
-@media screen and (max-width: 600px) {
-     input[type=text] {
-      width: 100%;
-      margin-top: 0;
-    }
-    input::placeholder{
-        font-size: smaller;
-    } 
-  }
 
 
 
