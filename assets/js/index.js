@@ -88,16 +88,15 @@ const searchBrewery = (locationInput, stateInput, breweryInput) => {
     fetch(API_URL).then(function (response) {
         return response.json();
     }).then(function (data) {
-
         listBreweries(data);
-
-    });
+    }).catch(displayError());
 }
 
 const listBreweries = (breweries) => {
     //clears all cards in card container
     $("#card-container").html("");
 
+    
     //Randomly shuffles an array to be used when determining the gif to use for each card
     let numberTOGrab = 50;
     let startingArray = [];
@@ -170,9 +169,20 @@ const listBreweries = (breweries) => {
             }
 
             $("#card-container").append($breweryCard); //<= places info on page
-            updateFavorites();
+            updateFavorites(); 
         });
     }
+    if (breweries.length === 0){
+        displayError();
+    }
+}
+
+const displayError = () => {
+    $("#card-container").html("");
+    $("#card-container").append(
+        $("<div>").text("404 Brewery Not Found").addClass("about"),
+
+    );
 }
 
 const addFavorites = (ID, HTML) => {
