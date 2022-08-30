@@ -236,8 +236,8 @@ footer li {
 }
 
 .fav-text {
-    font-size: medium;
-}
+    font
+};
 
 @media only screen and (max-width: 900px) {
     #beer-quote, #quote-attribution { 
