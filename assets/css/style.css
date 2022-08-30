@@ -182,7 +182,7 @@ footer li {
     background-color: rgba(252, 170, 21, .8 )
 }
 
-#states {
+#state-input {
     height: auto;
     border-radius: 60px;
     border: 6px solid var(--main-ts-color);
@@ -224,7 +224,7 @@ footer li {
 }
 
 
-#states:focus {
+#state-input:focus {
     background-color: rgba(252, 170, 21, .8 );
 }
 
