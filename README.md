@@ -1,34 +1,46 @@
-# ultimate-brew-master-brewery-finder
-
+# Ultimate Brew Master
 ## Description
+Ultimate Brew Master is a brewery location app that searches for brewerys near searched location in input fields </br>
+and has the ability to persist through sessions with a favorites button. </br>
+Created with:
+- HTML 5
+- CSS 3
+- Java Script
+- JQuery
+- Jquery UI
+- Google Fonts
+- Semantic UI
+- Open Breweries DB API
+- Giphy API
 
-Created a weather dashboard that when the user searches a city the current weather is displayed as well as the 5 day forecast. Once a city is searched a button is created in the past search section with the previous 5 searches. 
+## User Story
+```
+AS AN brewery enthusiast
+I WANT to be able to search for nearby breweries
+SO THAT I can vist breweries accordingly
+```
 
-## Website URL 
+## Acceptance Criteria
+```
+GIVEN I need to find local breweries
+WHEN I input my location within the search field
+THEN I am presented with breweries based on search results
+WHEN I click one of the brewery links
+THEN I am taken to the breweries website
+WHEN I click on the map button
+THEN I am directed to a map with the breweries location
+WHEN I add the brewery as a favorite
+THEN I can access favorites with my breweries persisting throguh sessions.
+```
 
-* [deployed link]()
-
-## Github
-
-https://github.com/palminski/ultimate-brew-master-brewery-finder.git
-
-
-## Images
-
-<img src="">
-
-<img src="">
-
-## Created by:
-
-Travis Greers 
-
-William Bolls
-
-Jake Schlei
-
-Dean Dunivan
+## GitPages Link
 
 
+## Screenshot
 
-## Contact Info:
+## Created By
+- Travis Geers https://github.com/Dodgemech
+- Dean Dunivan https://github.com/deand925
+- Jake Schlei https://github.com/JakeSchlei
+- William Bolls https://github.com/palminski
+
