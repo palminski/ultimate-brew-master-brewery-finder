@@ -86,14 +86,24 @@ const searchBrewery = (locationInput, stateInput, breweryInput) => {
     let API_URL = API_URL_BASE + locationParameter + stateParameter + breweryParameter;
 
     fetch(API_URL).then(function (response) {
-        return response.json();
-    }).then(function (data) {
-        listBreweries(data);
-    }).catch(displayError());
+        if (response.ok) {
+            response.json().then(function(data){
+                console.log(data);
+                listBreweries(data);
+            });
+        }
+        else{
+            console.log("error");
+            displayError();
+        }
+    }).catch(function(error) {
+        displayError();
+    });
 }
 
 const listBreweries = (breweries) => {
     //clears all cards in card container
+    console.log("listing breweries");
     $("#card-container").html("");
 
     
@@ -108,68 +118,73 @@ const listBreweries = (breweries) => {
     for (let i = 0; i < breweries.length; i++) {
         //Grab Gif
         fetch("https://api.giphy.com/v1/gifs/search?api_key=t8B9bOhzlzT6JWigjBj02k9eDnQx1nFI&q=simpsons-beer&rating=pg&limit=" + numberTOGrab).then(function (response) {
-            return response.json();
-        }).then(function (data) {
+            if (response.ok) {
+                response.json().then(function(data){
+                    let gif = data.data[randomArray[i]].images.original.url;
 
-            let gif = data.data[randomArray[i]].images.original.url;
-
-            //Make and append Brewery Cards
-            let $breweryCard = $("<div>")
-                .addClass("ui card brew-card")
-                .attr("data-breweryID", (breweries[i].name + breweries[i].phone).replace(/\s+/g, ""));
-
-            // Checks if there is an associated Link
-            if (breweries[i].website_url) {
-                $breweryCard.append(
-                    $("<a>").addClass("ui medium bordered image").attr("href", breweries[i].website_url).attr("target", "_blank")
-                        .append(
-                            $("<img>").addClass("ui small image").attr("src", gif)
-                        ),
-                    $("<div>").addClass("content")
-                        .append(
-                            $("<a>").addClass("header").text(breweries[i].name).attr("href", breweries[i].website_url).attr("target", "_blank"),
-                            $("<div>").addClass("type").text("Brewery Type: " + breweries[i].brewery_type),
-                            $("<div>").addClass("adress").text(breweries[i].street + " " + breweries[i].city + " " + breweries[i].state),
-                            $("<div>").addClass("number").text("Phone Number: " + breweries[i].phone),
-                            $("<a>").attr("href", "https://www.google.com/maps/search/" + breweries[i].street + ", " + breweries[i].city + ", " + breweries[i].state + breweries[i].name).attr("target", "_blank").append(
-                                $("<button>").addClass("ui icon map button").text("Map").attr("id", "favorites")),
-                            
-                            $("<label>").addClass("star-checkbox").append(
-                                $("<input>").attr("type", "checkbox").attr("value", (breweries[i].name + breweries[i].phone).replace(/\s+/g, "")).addClass("favorite-checkbox"),
-                                $("<i>").addClass("heart icon").attr("id","filled"),
-                                $("<i>").addClass("heart outline icon").attr("id","outline"),
-                            ),
-                           
-                        )
-                );
+                    //Make and append Brewery Cards
+                    let $breweryCard = $("<div>")
+                        .addClass("ui card brew-card")
+                        .attr("data-breweryID", (breweries[i].name + breweries[i].phone).replace(/\s+/g, ""));
+        
+                    // Checks if there is an associated Link
+                    if (breweries[i].website_url) {
+                        $breweryCard.append(
+                            $("<a>").addClass("ui medium bordered image").attr("href", breweries[i].website_url).attr("target", "_blank")
+                                .append(
+                                    $("<img>").addClass("ui small image").attr("src", gif)
+                                ),
+                            $("<div>").addClass("content")
+                                .append(
+                                    $("<a>").addClass("header").text(breweries[i].name).attr("href", breweries[i].website_url).attr("target", "_blank"),
+                                    $("<div>").addClass("type").text("Brewery Type: " + breweries[i].brewery_type),
+                                    $("<div>").addClass("adress").text(breweries[i].street + " " + breweries[i].city + " " + breweries[i].state),
+                                    $("<div>").addClass("number").text("Phone Number: " + breweries[i].phone),
+                                    $("<a>").attr("href", "https://www.google.com/maps/search/" + breweries[i].street + ", " + breweries[i].city + ", " + breweries[i].state + breweries[i].name).attr("target", "_blank").append(
+                                        $("<button>").addClass("ui icon map button").text("Map").attr("id", "favorites")),
+                                    
+                                    $("<label>").addClass("star-checkbox").append(
+                                        $("<input>").attr("type", "checkbox").attr("value", (breweries[i].name + breweries[i].phone).replace(/\s+/g, "")).addClass("favorite-checkbox"),
+                                        $("<i>").addClass("heart icon").attr("id","filled"),
+                                        $("<i>").addClass("heart outline icon").attr("id","outline"),
+                                    ),
+                                   
+                                )
+                        );
+                    }
+                    else {
+                        $breweryCard.append(
+                            $("<div>").addClass("ui medium bordered image")
+                                .append(
+                                    $("<img>").addClass("ui small image").attr("src", gif)
+                                ),
+                            $("<div>").addClass("content")
+                            .append(
+                                $("<a>").addClass("header").text(breweries[i].name).attr("href", breweries[i].website_url).attr("target", "_blank"),
+                                $("<div>").addClass("type").text("Brewery Type: " + breweries[i].brewery_type),
+                                $("<div>").addClass("adress").text(breweries[i].street + " " + breweries[i].city + " " + breweries[i].state),
+                                $("<div>").addClass("number").text("Phone Number: " + breweries[i].phone),
+                                $("<a>").attr("href", "https://www.google.com/maps/search/" + breweries[i].street + ", " + breweries[i].city + ", " + breweries[i].state + breweries[i].name).attr("target", "_blank").append(
+                                    $("<button>").addClass("ui icon map button").text("Map").attr("id", "favorites")),
+                                
+                                $("<label>").addClass("star-checkbox").append(
+                                    $("<input>").attr("type", "checkbox").attr("value", (breweries[i].name + breweries[i].phone).replace(/\s+/g, "")).addClass("favorite-checkbox"),
+                                    $("<i>").addClass("heart icon").attr("id","filled"),
+                                    $("<i>").addClass("heart outline icon").attr("id","outline"),
+                                ),
+                               
+                            )
+                        );
+                    }
+        
+                    $("#card-container").append($breweryCard); //<= places info on page
+                    updateFavorites(); 
+                })
+            } else {
+                console.log("error");
             }
-            else {
-                $breweryCard.append(
-                    $("<div>").addClass("ui medium bordered image")
-                        .append(
-                            $("<img>").addClass("ui small image").attr("src", gif)
-                        ),
-                    $("<div>").addClass("content")
-                    .append(
-                        $("<a>").addClass("header").text(breweries[i].name).attr("href", breweries[i].website_url).attr("target", "_blank"),
-                        $("<div>").addClass("type").text("Brewery Type: " + breweries[i].brewery_type),
-                        $("<div>").addClass("adress").text(breweries[i].street + " " + breweries[i].city + " " + breweries[i].state),
-                        $("<div>").addClass("number").text("Phone Number: " + breweries[i].phone),
-                        $("<a>").attr("href", "https://www.google.com/maps/search/" + breweries[i].street + ", " + breweries[i].city + ", " + breweries[i].state + breweries[i].name).attr("target", "_blank").append(
-                            $("<button>").addClass("ui icon map button").text("Map").attr("id", "favorites")),
-                        
-                        $("<label>").addClass("star-checkbox").append(
-                            $("<input>").attr("type", "checkbox").attr("value", (breweries[i].name + breweries[i].phone).replace(/\s+/g, "")).addClass("favorite-checkbox"),
-                            $("<i>").addClass("heart icon").attr("id","filled"),
-                            $("<i>").addClass("heart outline icon").attr("id","outline"),
-                        ),
-                       
-                    )
-                );
-            }
-
-            $("#card-container").append($breweryCard); //<= places info on page
-            updateFavorites(); 
+        }).catch(function (error) {
+            displayError();
         });
     }
     if (breweries.length === 0){
@@ -178,6 +193,7 @@ const listBreweries = (breweries) => {
 }
 // Displays error if no results can be found 
 const displayError = () => {
+    
     $("#card-container").html("");
     $("#card-container").append(
         $("<div>").text("404 Brewery Not Found").addClass("about"),
